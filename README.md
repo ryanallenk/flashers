@@ -16,8 +16,8 @@
   - Map API (Which Google Maps? Apple Maps?)
 
 ## MVP
--Creation of routes (minimum is name and location)
--Map pins can be placed, interactive
+- Creation of routes (minimum is name and location)
+- Map pins can be placed, interactive
 -
 
 ## Stretch
@@ -30,10 +30,14 @@
 - (loose form of a point system, relating to amount of routes flashed, difficulty...etc)FlashCoin, an arbitrary crypto-currency is awarded to those who consistently FA(first ascent)
 
 ## User Stories
+[github projects](https://github.com/ryanallenk/flashers/projects/1)
 
 ## Entity Relationship Diagram
 
+[ERD Diagram on Draw.io](https://drive.google.com/file/d/1Wn7J69STbKsC7jDE-W2O6wSQLfLdnDMv/view?usp=sharing)
+
 ## Wireframes
+[MVP Wireframe](https://drive.google.com/file/d/1x6rn1uzxOCSvKLBZg4PHR9uVR8ZMx3nl/view?usp=sharing)
 
 ## Inspiration
 
