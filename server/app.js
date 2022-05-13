@@ -17,7 +17,7 @@ app.use(morgan(ENVIRONMENT));
 app.use(bodyParser.json());
 
 
-app.use('/climbs', flasherRoutes())
+app.use('/climbs', flasherRoutes(db))
 
 app.get('/', (req, res) => {
 	res.json({greetings: 'hello world'});

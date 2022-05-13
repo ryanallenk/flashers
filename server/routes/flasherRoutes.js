@@ -1,10 +1,12 @@
 const router = require('express').Router();
 
-module.exports = () => {
+module.exports = (db) => {
   // all routes will go here 
   router.get('/', (req, res) => {
-    const climbs = ['Yosemite', 'Niagra Glen', 'Joshua Tree'];
-    res.json(climbs);
+    const dbCommand = 'SELECT * FROM locations';
+    db.query(dbCommand).then(data => {
+      res.json(data.rows);
+    })
   });
   
   return router;

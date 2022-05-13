@@ -6,6 +6,6 @@ CREATE TABLE locations (
   image VARCHAR(2048),
   grade VARCHAR(3),
   user_rating INTEGER,
-  description VARCHAR(255),
+  climb_description VARCHAR(255),
   user_id integer REFERENCES users(id)
 )
