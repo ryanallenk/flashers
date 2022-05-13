@@ -22,6 +22,7 @@
 
 ## Stretch
 - Users / Login
+- Allow pinned locations to be set as a bouldering Gym. 
 - Amount of information available for each route/location (user-rating, grade, pictures, comments/details about route)
 - Users are able to keep a personalized record of boulders they have attempted, completed and most importantly FLASHED
 - Geo-location
@@ -38,7 +39,6 @@
 
 ## Wireframes
 [MVP Wireframe](https://drive.google.com/file/d/1x6rn1uzxOCSvKLBZg4PHR9uVR8ZMx3nl/view?usp=sharing)
-
 ## Inspiration
 
 https://bouldermap.app/
