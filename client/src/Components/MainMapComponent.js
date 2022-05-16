@@ -1,6 +1,6 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
+import useApplicationData from "../hooks/useApplicationData";
 const {REACT_APP_API_KEY} = process.env;
 
 const containerStyle = {
@@ -14,11 +14,14 @@ const center = {
 };
 
 function MainMapComponent() {
+  const { getMapMarkers } = useApplicationData();
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: REACT_APP_API_KEY,
   })
 
+  // getMapMarkers()
+// console.log("howmanyruntimes")
   const [map, setMap] = React.useState(null)
 
   const onLoad = React.useCallback(function callback(map) {
