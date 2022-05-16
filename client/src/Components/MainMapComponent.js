@@ -16,7 +16,7 @@ const center = {
 function MainMapComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: REACT_APP_API_KEY
+    googleMapsApiKey: REACT_APP_API_KEY,
   })
 
   const [map, setMap] = React.useState(null)
@@ -38,6 +38,7 @@ function MainMapComponent() {
         zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
+        options= {{mapId:'707f031a8aaa1435'}}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
