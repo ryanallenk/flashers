@@ -28,29 +28,18 @@
 }
 .container .modal {
   z-index: 9999;
-  width: 350px;
-  height: 220px;
+  width: 80vw;
+  height: 80vh;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  flex-direction: column;
+  border-radius: 2px;
   position: relative;
   animation: animate 0.3s;
 }
-.modal button {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  padding: 8px 11px;
-  background: crimson;
-  color: white;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  cursor: pointer;
-}
+
 @keyframes animate {
   from {
     transform: scale(0.5);

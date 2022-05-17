@@ -14,14 +14,16 @@ export const Modal = ({setShowModal, data}) => {
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
+        <button onClick={() => setShowModal(false)}>X</button>
         <h2>This is climb #{data.id}</h2>
+        <br></br>
+        <img alt="Climb Image" src={data.image}/>
         <br></br>
         <p>Latitude:{data.lat}</p>
         <br></br>
         <p>Longitude:{data.long}</p>
         <br></br>
         <p>{data.climb_description}</p>
-        <button onClick={() => setShowModal(false)}>X</button>
       </div>
     </div>,
     document.getElementById("portal")
