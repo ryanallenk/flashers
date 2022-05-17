@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { mapMarkerContext } from '../providers/MapMarkersProvider';
 const {REACT_APP_API_KEY} = process.env;
 
@@ -18,13 +18,13 @@ function MainMapComponent() {
   const {markers} = useContext(mapMarkerContext)
   
   const mapMarkers = markers.map((marker, index) => {
-    console.log(marker);
-    console.log(parseFloat(marker.lat));
+    // console.log(marker);
+    // console.log(parseFloat(marker.lat));
     return (
     <Marker
       key={index}
       position={{lat: parseFloat(marker.lat), lng: parseFloat(marker.long)}}
-    >
+    > 
     </Marker>
     )
   })
