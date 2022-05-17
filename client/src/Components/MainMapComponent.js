@@ -3,6 +3,7 @@ import MapMarkers from './Marker';
 // import { useContext } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import InfoWindow from './InfoWindow';
+import { Modal } from './MarkerModal';
 // import { mapMarkerContext } from '../providers/MapMarkersProvider';
 const {REACT_APP_API_KEY} = process.env;
 // const {} = use
@@ -23,7 +24,7 @@ function MainMapComponent() {
     googleMapsApiKey: REACT_APP_API_KEY,
   })
 
-  const initInfoWindows = InfoWindow()
+  // const initInfoWindows = InfoWindow()
   const initMapMarkers = MapMarkers()
 
   const [map, setMap] = React.useState(null)
@@ -48,7 +49,6 @@ function MainMapComponent() {
         options= {{mapId:'707f031a8aaa1435'}}
       >
        { initMapMarkers}
-       { initInfoWindows }
         <> </>
       </GoogleMap>
   ) : <></>
