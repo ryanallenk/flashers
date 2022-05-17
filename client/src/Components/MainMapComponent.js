@@ -1,10 +1,8 @@
 import React from 'react'
 import MapMarkers from './Marker';
-// import { useContext } from 'react'
+import { useState } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import InfoWindow from './InfoWindow';
-import { Modal } from './MarkerModal';
-// import { mapMarkerContext } from '../providers/MapMarkersProvider';
+import { FormModal } from './FormModal';
 const {REACT_APP_API_KEY} = process.env;
 // const {} = use
 const containerStyle = {
@@ -18,6 +16,8 @@ const center = {
 };
 
 function MainMapComponent() {
+  const [showForm, setShowForm] = useState(false)
+  const [formData, setFormData] = useState(false)
   
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -39,6 +39,16 @@ function MainMapComponent() {
     setMap(null)
   }, [])
 
+  const mapClickHandler = (event) => {
+    setShowForm(true);
+    setFormData(event)  
+  
+    // <FormModal coords={event.latLng.toJSON()} /> 
+    // console.log("You clicked the map")
+    // event.latLng returns an object, call .toString or .toJSON to parse into coordinates
+    // console.log(event.latLng.toString())
+  }
+
   return isLoaded ? (
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -47,8 +57,10 @@ function MainMapComponent() {
         onLoad={onLoad}
         onUnmount={onUnmount}
         options= {{mapId:'707f031a8aaa1435'}}
+        onDblClick= {event => mapClickHandler(event)}
       >
        { initMapMarkers } 
+       { showForm ? <FormModal data={formData}/> : null}
         <> </>
       </GoogleMap>
   ) : <></>
