@@ -14,10 +14,9 @@ export default function useApplicationData () {
   }, [])
   
   function getMapMarkers() {
-    
+
   }
   return {
     getMapMarkers
   }
 }
-// export default { useApplicationData }
