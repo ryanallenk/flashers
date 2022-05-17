@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from 'react'
 const axios = require('axios').default;
 
 export const mapMarkerContext = createContext();
-
+//Make an axios request to the database API, returns provider context for MapMarkers
 export default function MapMarkersProvider (props) {
   const [markers, setMarkers] = useState([])
 

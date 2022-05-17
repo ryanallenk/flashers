@@ -1,9 +1,11 @@
 import React from 'react'
-import { useContext } from 'react'
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
-import { mapMarkerContext } from '../providers/MapMarkersProvider';
+import MapMarkers from './Marker';
+// import { useContext } from 'react'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import InfoWindow from './InfoWindow';
+// import { mapMarkerContext } from '../providers/MapMarkersProvider';
 const {REACT_APP_API_KEY} = process.env;
-
+// const {} = use
 const containerStyle = {
   width: '100vw',
   height: '100vh'
@@ -15,25 +17,14 @@ const center = {
 };
 
 function MainMapComponent() {
-  const {markers} = useContext(mapMarkerContext)
   
-  const mapMarkers = markers.map((marker, index) => {
-    // console.log(marker);
-    // console.log(parseFloat(marker.lat));
-    return (
-    <Marker
-      key={index}
-      position={{lat: parseFloat(marker.lat), lng: parseFloat(marker.long)}}
-    > 
-    </Marker>
-    )
-  })
-
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: REACT_APP_API_KEY,
   })
 
+  const initInfoWindows = InfoWindow()
+  const initMapMarkers = MapMarkers()
 
   const [map, setMap] = React.useState(null)
 
@@ -51,13 +42,14 @@ function MainMapComponent() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={9}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options= {{mapId:'707f031a8aaa1435'}}
       >
-
-        <> { mapMarkers } </>
+       { initMapMarkers}
+       { initInfoWindows }
+        <> </>
       </GoogleMap>
   ) : <></>
 }
