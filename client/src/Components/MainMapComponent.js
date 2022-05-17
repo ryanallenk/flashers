@@ -43,12 +43,12 @@ function MainMapComponent() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={9}
+        zoom={8}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options= {{mapId:'707f031a8aaa1435'}}
       >
-       { initMapMarkers}
+       { initMapMarkers } 
         <> </>
       </GoogleMap>
   ) : <></>

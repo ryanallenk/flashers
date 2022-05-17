@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import ReactDom from "react-dom";
 
-export const Modal = ({setShowModal}) => {
+export const Modal = ({setShowModal, data}) => {
 
   // close the modal when clicking outside the modal.
   const modalRef = useRef();
@@ -14,7 +14,13 @@ export const Modal = ({setShowModal}) => {
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
-        <h2>This is a Modal</h2>
+        <h2>This is climb #{data.id}</h2>
+        <br></br>
+        <p>Latitude:{data.lat}</p>
+        <br></br>
+        <p>Longitude:{data.long}</p>
+        <br></br>
+        <p>{data.climb_description}</p>
         <button onClick={() => setShowModal(false)}>X</button>
       </div>
     </div>,

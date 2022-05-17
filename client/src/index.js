@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CurrentMarkerProvider from './providers/CurrentMarkerProvider';
+import ModalProvider from './providers/ModalProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ModalProvider>
+    <CurrentMarkerProvider>
     <App />
+    </CurrentMarkerProvider>
+    </ModalProvider>
   </React.StrictMode>,
 );
 

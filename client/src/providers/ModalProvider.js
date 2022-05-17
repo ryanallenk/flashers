@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react'
+import { createContext, useState} from 'react'
 
 const axios = require('axios').default;
 
@@ -8,7 +8,7 @@ export const modalContext = createContext();
 export default function ModalProvider (props) {
   const [showModal, setShowModal] = useState(false);
   
-  const providerData = {showModal}
+  const providerData = {showModal, setShowModal}
   
   return (
     <modalContext.Provider value={providerData}>
