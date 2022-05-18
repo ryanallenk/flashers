@@ -39,6 +39,19 @@
   position: relative;
   animation: animate 0.3s;
 }
+.container .form-modal {
+  z-index: 9999;
+  width: 80vw;
+  height: 80vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 2px;
+  position: relative;
+  animation: animate 0.3s;
+}
 
 @keyframes animate {
   from {

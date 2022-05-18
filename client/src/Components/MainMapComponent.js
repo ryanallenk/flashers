@@ -1,7 +1,7 @@
 import React from 'react'
 import MapMarkers from './Marker';
 import { useState } from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { FormModal } from './FormModal';
 const {REACT_APP_API_KEY} = process.env;
 // const {} = use
@@ -40,8 +40,13 @@ function MainMapComponent() {
   }, [])
 
   const mapClickHandler = (event) => {
+    const locationData = {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng()
+    }
+    // addMarker(locationData)
     setShowForm(true);
-    setFormData(event)  
+    setFormData(locationData)  
   
     // <FormModal coords={event.latLng.toJSON()} /> 
     // console.log("You clicked the map")
