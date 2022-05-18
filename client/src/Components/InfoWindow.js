@@ -28,25 +28,3 @@ const InfoWindowComponent = (props) => {
    }
 
    export default InfoWindowComponent
-
-//    withGoogleMap(props => (
-//     <GoogleMap
-//     ref={props.onMapLoad}
-//     defaultZoom={props.defaultZoom}
-//     defaultCenter={props.defaultCenter}
-//    >
-//     {props.markers.map((marker, index) => (
-//      <Marker {...marker}>
-//      {
-//        marker.key === props.activeMarker ? 
-//        <InfoWindow {...marker.infoWindow} >
-//             <span>
-//               <b>{marker.marker.venue}</b>
-//               {genInfoWindow(marker.marker)}
-//             </span>
-//        </InfoWindow> : null
-//      }
-//      </Marker>
-//     ))}
-//    </GoogleMap>
-//   ))

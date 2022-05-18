@@ -19,9 +19,9 @@ export const Modal = ({setShowModal, data}) => {
         <br></br>
         <img alt="Climb Image" src={data.image}/>
         <br></br>
-        <p>Latitude:{data.lat}</p>
+        <p>Latitude: {data.lat}</p>
         <br></br>
-        <p>Longitude:{data.long}</p>
+        <p>Longitude: {data.long}</p>
         <br></br>
         <p>{data.climb_description}</p>
       </div>
