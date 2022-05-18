@@ -53,7 +53,7 @@ function MainMapComponent() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={8}
+        zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options= {{mapId:'707f031a8aaa1435'}}
