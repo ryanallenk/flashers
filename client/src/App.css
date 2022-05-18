@@ -55,7 +55,7 @@
 
 @keyframes animate {
   from {
-    transform: scale(0.5);
+    transform: scale(0.05);
   }
   to {
     transform: scale(1);

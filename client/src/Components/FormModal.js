@@ -1,16 +1,23 @@
 import React, { useRef, useState } from "react";
 import ReactDom from "react-dom";
 
-export const FormModal = (formData) => {
-  console.log("lat location data in FormModal:", formData.data.lat)
-  console.log("long location data in FormModal:", formData.data.lng)
+export const FormModal = ({data, setShowForm}) => {
+  const modalRef = useRef();
+  
+  const closeModal = (e) => {
+    if (e.target === modalRef.current) {
+      setShowForm(false);
+    }
+  };
+
   return (
     ReactDom.createPortal(
-      <div className="container">
+      <div className="container" ref={modalRef} onClick={closeModal}>
         <div className="form-modal">
+        <button onClick={() => setShowForm(false)}>X</button>
           Form Modal
-          <span>Latitude: {formData.data.lat}</span>
-          <span>Longitude: {formData.data.lng}</span>
+          <span>Latitude: {data.lat}</span>
+          <span>Longitude: {data.lng}</span>
         </div>
       </div>,
       document.getElementById("portal")

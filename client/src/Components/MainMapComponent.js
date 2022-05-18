@@ -16,8 +16,10 @@ const center = {
 };
 
 function MainMapComponent() {
+  // two states are tracked by the Map Component -> showForm which is a boolean deciding wheteher the form loads and formData which is the data from the click event passed to the form
+
   const [showForm, setShowForm] = useState(false)
-  const [formData, setFormData] = useState(false)
+  const [formData, setFormData] = useState({})
   
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -65,7 +67,7 @@ function MainMapComponent() {
         onDblClick= {event => mapClickHandler(event)}
       >
        { initMapMarkers } 
-       { showForm ? <FormModal data={formData}/> : null}
+       { showForm ? <FormModal data={formData} setShowForm={setShowForm}/> : null}
         <> </>
       </GoogleMap>
   ) : <></>
