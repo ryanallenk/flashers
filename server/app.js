@@ -2,14 +2,14 @@
 
 
 // declarations
-require('dotenv').config();
-const {PORT, ENVIRONMENT} = process.env;
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors'); // cors require
-const bodyParser = require('body-parser');
+require("dotenv").config();
+const { PORT, ENVIRONMENT } = process.env;
+const express = require("express");
+const morgan = require("morgan");
+const cors = require("cors"); // cors require
+const bodyParser = require("body-parser");
 // db connection
-const db = require('./configs/db.config');
+const db = require("./configs/db.config");
 
 // routes import
 const flasherRoutes = require('./routes/flasherRoutes');
@@ -18,10 +18,11 @@ const { response } = require('express');
 const app = express();
 
 // middleware setup
-app.use(cors()) // CORS middleware useage
+app.use(cors()); // CORS middleware useage
 app.use(morgan(ENVIRONMENT));
 app.use(bodyParser.json());
 
+app.use("/api", flasherRoutes(db));
 
 
 // routes

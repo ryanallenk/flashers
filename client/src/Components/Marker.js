@@ -1,7 +1,7 @@
 import React from 'react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { mapMarkerContext } from '../providers/MapMarkersProvider';
-import { Marker, InfoWindow } from '@react-google-maps/api';
+import { Marker} from '@react-google-maps/api';
 import { markerContext } from '../providers/CurrentMarkerProvider';
 import { modalContext } from '../providers/ModalProvider';
 
@@ -10,6 +10,7 @@ export default function MapMarkers () {
   const {markers} = useContext(mapMarkerContext);
   const {currentMarker, setCurrentMarker} = useContext(markerContext);
   const {showModal, setShowModal} = useContext(modalContext);
+
 
   const markerClickHandler = (marker) => {
     setCurrentMarker(marker);

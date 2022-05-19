@@ -28,16 +28,74 @@
 }
 .container .modal {
   z-index: 9999;
-  width: 80vw;
-  height: 80vh;
-  background: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 850px;
+  height: 550px;
+  color: aliceblue;
+  background-color: #2e2e2e9c;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  border-radius: 2px;
+  border-radius: 15px;
   position: relative;
   animation: animate 0.3s;
+  overflow-y: auto;
+}
+
+.container .photo--container {
+  display: flex;
+  padding-right: 20px;
+}
+
+.container .info--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container .climb--image {
+  display: flex;
+  transition:transform 0.25s ease;
+}
+
+.container .coords {
+  display: flex;
+  justify-content: center;
+}
+
+.container .description {
+  display: flex;
+  flex-direction: left;
+  width: 90%;
+}
+
+.container .modal--header {
+  width: 98%;
+  display: inline-flex;
+  justify-content: right;
+}
+
+.container .modal--body {
+ display: flex;
+  width: 80%;
+  flex-direction: row;
+}
+
+.container .modal--footer {
+  display: flex;
+ }
+
+ .container .climb--title {
+  display: flex;
+  justify-content: center;
+ }
+
+.container .x--button {
+  width: 90%;
+  display: flex;
+  justify-content: right;
 }
 .container .form_modal {
   z-index: 9999;
@@ -60,4 +118,8 @@
   to {
     transform: scale(1);
   }
+}
+
+.Navbar {
+  background-color: rgb(50, 11, 140);
 }
