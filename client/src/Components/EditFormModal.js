@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import ReactDom from "react-dom";
 import Select from 'react-select'
-import ClimbImage from "./FileUploader";
+import ClimbImage from "./ImageUploader";
 import axios from 'axios';
 
 
