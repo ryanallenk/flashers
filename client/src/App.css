@@ -42,10 +42,10 @@
   animation: animate 0.3s;
   overflow-y: auto;
 }
+
 .container .photo--container {
   display: flex;
   padding-right: 20px;
-  
 }
 
 .container .info--container {
@@ -105,4 +105,8 @@
   to {
     transform: scale(1);
   }
+}
+
+.Navbar {
+  background-color: rgb(50, 11, 140);
 }
