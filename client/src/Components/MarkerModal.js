@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import ReactDom from "react-dom";
-
+import  LoginButton  from './LoginButton'
 export const Modal = ({setShowModal, data}) => {
 
   // close the modal when clicking outside the modal.
@@ -14,6 +14,7 @@ export const Modal = ({setShowModal, data}) => {
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
+        <LoginButton/>
         <button onClick={() => setShowModal(false)}>X</button>
         <h2>This is climb #{data.id}</h2>
         <br></br>

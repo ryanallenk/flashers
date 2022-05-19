@@ -5,15 +5,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CurrentMarkerProvider from './providers/CurrentMarkerProvider';
 import ModalProvider from './providers/ModalProvider';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Auth0Provider
+      domain="dev-nydse5mo.us.auth0.com"
+      clientId='90eresyvb6kouGuBZldLEeNYKvXYgxjL'
+      redirectUri={window.location.origin}
+    >
     <ModalProvider>
     <CurrentMarkerProvider>
-    <App />
+      <App />
     </CurrentMarkerProvider>
     </ModalProvider>
+    </Auth0Provider>
   </React.StrictMode>,
 );
 
