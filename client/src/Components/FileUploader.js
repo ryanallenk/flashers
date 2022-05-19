@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function ClimbImage({setImage}) {
+export default function ClimbImage({currentImage, setImage}) {
     const tempImage = 'https://i.imgur.com/TaEzV7X.jpeg'
     const [values, setValues] = useState({
-        imagePreviewUrl: tempImage,
+        imagePreviewUrl: (currentImage || tempImage),
         picFile: null
     })
     let fileInput = React.createRef();
