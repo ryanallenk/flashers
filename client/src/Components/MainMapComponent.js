@@ -10,11 +10,6 @@ const containerStyle = {
   height: '100vh'
 };
 
-const center = {
-  lat: 43.666911,
-  lng: -79.449449
-};
-
 function MainMapComponent() {
   // two states are tracked by the Map Component -> showForm which is a boolean deciding wheteher the form loads and formData which is the data from the click event passed to the form
 
@@ -25,18 +20,34 @@ function MainMapComponent() {
     id: 'google-map-script',
     googleMapsApiKey: REACT_APP_API_KEY,
   })
-
+  
   // const initInfoWindows = InfoWindow()
   const initMapMarkers = MapMarkers()
-
+  
   const [map, setMap] = React.useState(null)
+  const [lng, setLong] = useState(-79.347015);
+  const [lat, setLat] = useState(43.6532);
+  const center = {
+    lat, lng
+  };
+  const [errorMessage, setErrorMessage] = useState('');
 
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
+  // logic for the location detection upon arrival
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        console.log("lat:",lat, "long:", lng)
+        setLat(lat);
+        setLong(lng);
+  }, () => {
+    setErrorMessage('We could not find your location.')
+  })
+}
 
+  }, [])
+    
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
@@ -60,7 +71,7 @@ function MainMapComponent() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={8}
+        zoom={14}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options= {{mapId:'707f031a8aaa1435'}}

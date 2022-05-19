@@ -1,4 +1,3 @@
-
 import './App.css';
 import MainMapComponent from "./Components/MainMapComponent";
 import { MarkerModal } from './Components/MarkerModal';
@@ -8,6 +7,9 @@ import { markerContext } from './providers/CurrentMarkerProvider';
 import { modalContext } from './providers/ModalProvider';
 import {editFormModalContext} from './providers/EditFormModalProvider';
 import { EditFormModal } from './Components/EditFormModal';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./Navigation/Navbar.js";
+import useGeolocation from "react-navigator-geolocation";
 
 function App() {
   const {showModal, setShowModal} = useContext(modalContext);
@@ -15,6 +17,7 @@ function App() {
   const {showEditFormModal, setShowEditFormModal} = useContext(editFormModalContext);
   return (
     <div className="App">
+    <Navbar />
     <MapMarkersProvider>
     <MainMapComponent />
     </MapMarkersProvider>
@@ -25,3 +28,4 @@ function App() {
 }
 
 export default App;
+
