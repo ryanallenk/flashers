@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CurrentMarkerProvider from './providers/CurrentMarkerProvider';
 import ModalProvider from './providers/ModalProvider';
+import EditFormModalProvider from './providers/EditFormModalProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <EditFormModalProvider>
     <ModalProvider>
     <CurrentMarkerProvider>
     <App />
     </CurrentMarkerProvider>
     </ModalProvider>
+    </EditFormModalProvider>
   </React.StrictMode>,
 );
 

@@ -1,17 +1,19 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState } from "react";
 import ReactDom from "react-dom";
 import Select from 'react-select'
 import ClimbImage from "./FileUploader";
 import axios from 'axios';
 
 
-export const EditFormModal = ({ data, setShowForm }) => {
-  console.log(data)
+export const EditFormModal = ({ data, setShowEditFormModal }) => {
+  
+  const id = data.id
+  
   const modalRef = useRef();
-  const [description, setDescription] = useState("");
-  const [grade, setGrade] = useState("");
-  const [rating, setRating] = useState(null);
-  const [image, setImage] = useState("");
+  const [description, setDescription] = useState(data.climb_description);
+  const [grade, setGrade] = useState(data.grade);
+  const [rating, setRating] = useState(data.user_rating);
+  const [image, setImage] = useState(data.image);
 
   const gradeOptions = [
     { value: 'v0', label: 'V0' },
@@ -43,7 +45,7 @@ export const EditFormModal = ({ data, setShowForm }) => {
   ]
   const closeModal = (e) => {
     if (e.target === modalRef.current) {
-      setShowForm(false);
+      setShowEditFormModal(false);
     }
   };
   const handleSubmit = (e) => {
@@ -54,14 +56,15 @@ export const EditFormModal = ({ data, setShowForm }) => {
       grade: grade,
       user_rating: rating,
       lat: data.lat,
-      lng: data.lng,
+      lng: data.long,
       user_id: 1,
+      id: data.id
     }
     return axios
-    .post('http://localhost:8080/api/climbs', formSubmitData)
+    .put(`http://localhost:8080/api/climbs/${id}`, formSubmitData)
     .then(res => {
-      //  console.log(res);
-      console.log(res);
+      console.log("Response:", res);
+      console.log("Data:", res.data);
     })
     .catch(error => {
       console.log(error)
@@ -74,7 +77,7 @@ export const EditFormModal = ({ data, setShowForm }) => {
         <div className="form_modal">
           <ClimbImage setImage={setImage} currentImage={data.image}/>
           <form onSubmit={handleSubmit}>
-          <button onClick={() => setShowForm(false)}>X</button>
+          <button onClick={() => setShowEditFormModal(false)}>X</button>
           <div className="userClick_coords">
             <h1>THIS IS FORM TO EDIT A MARKER FORM</h1>
             <h1>Click Coordinates</h1>
@@ -85,8 +88,7 @@ export const EditFormModal = ({ data, setShowForm }) => {
             <label>Description:
               <input
               type="text"
-              placeholder={data.climb_description}
-              defaultValue={data.climb_description}
+              placeholder={description}
               value={description}
               onChange={(event) => setDescription(event.target.value)}
               />
@@ -95,8 +97,8 @@ export const EditFormModal = ({ data, setShowForm }) => {
           <div>
           <label> Grade:
             <Select
-            placeholder={data.grade.toUpperCase()}
-            defaultValue={data.grade}
+            placeholder={grade.toUpperCase()}
+            value={grade}
             onChange={(event) => setGrade(event.value)}
             options={gradeOptions}
 
@@ -106,8 +108,8 @@ export const EditFormModal = ({ data, setShowForm }) => {
           <div>
             <label> User Rating:
             <Select
-            placeholder={data.user_rating}
-            defaultValue={data.user_rating}
+            placeholder={rating}
+            value={rating}
             onChange={(event) => setRating(event.value)}
             options={ratingOptions}
 

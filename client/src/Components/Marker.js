@@ -11,6 +11,7 @@ export default function MapMarkers () {
   const {currentMarker, setCurrentMarker} = useContext(markerContext);
   const {showModal, setShowModal} = useContext(modalContext);
 
+
   const markerClickHandler = (marker) => {
     setCurrentMarker(marker);
     setShowModal(true);

@@ -21,6 +21,18 @@ module.exports = (db) => {
       res.json(data.rows);
     })
   });
+
+  router.put("/climbs/:id", (req, res) => {
+    const {lat, lng, image, grade, user_rating, climb_description, user_id, id} = req.body;
+    console.log(req.body);
+    
+    const dbCommand = 'UPDATE locations SET lat = $1, long = $2, image = $3, grade = $4, user_rating = $5, climb_description = $6, user_id = $7 WHERE id = $8'
+
+    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, user_id, id])
+    .then(data => {
+      res.json(data.rows);
+    })
+  });
   
   return router;
 }
