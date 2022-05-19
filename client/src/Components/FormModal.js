@@ -74,6 +74,7 @@ export const FormModal = ({ data, setShowForm }) => {
           <form onSubmit={handleSubmit}>
           <button onClick={() => setShowForm(false)}>X</button>
           <div className="userClick_coords">
+            
             <h1>Click Coordinates</h1>
             <span>Latitude: {data.lat}</span>
             <span>Longitude: {data.lng}</span>

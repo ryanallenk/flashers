@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const { REACT_APP_CLOUD_API_SECRET, REACT_APP_CLOUD_API_KEY, REACT_APP_CLOUD_NAME } = process.env;
-
 export default function ClimbImage() {
     const tempImage = 'https://i.imgur.com/TaEzV7X.jpeg'
     const [values, setValues] = useState({
@@ -33,20 +31,19 @@ export default function ClimbImage() {
     const handleSubmit = () => {
 
         return axios
-            .post(`https://api.cloudinary.com/v1_1/${REACT_APP_CLOUD_NAME}/upload`, values.picFile)
+            .post(`https://api.imgur.com/3/image`, values.picFile, {
+                headers: {
+                    Authorization: 'Client-ID d310b73b815ec88'
+                }
+            })
             .then((response) => {
-                console.log("Axios Response client side", response)
+                console.log("Axios response IMGUR POST", response)
             })
             .catch((error) => {
                 alert("Error occurred while uploading picture, try uploading a smaller image size or try again later.")
-                console.log("Axios error client side:", error)
+                console.log("Axios error IMGUR POST:", error)
             })
-        // response stores the response back from the API
-        //  const response = await axios.post(`/storage/upload`, form_data) // **** need to modify to add data to the post request
-        //  .catch(error => {
-        //     alert("Error occurred while uploading picture, try uploading a smaller image size or try again later.")
-        //     return;
-        //   });
+
     }
 
     return (

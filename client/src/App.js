@@ -6,6 +6,7 @@ import MapMarkersProvider from './providers/MapMarkersProvider';
 import {useState, useContext} from 'react'
 import { markerContext } from './providers/CurrentMarkerProvider';
 import { modalContext } from './providers/ModalProvider';
+import ClimbImage from './Components/FileUploader';
 
 function App() {
   const {showModal, setShowModal} = useContext(modalContext);
@@ -13,6 +14,7 @@ function App() {
   
   return (
     <div className="App">
+    <ClimbImage/>
     <MapMarkersProvider>
     <MainMapComponent />
     </MapMarkersProvider>
