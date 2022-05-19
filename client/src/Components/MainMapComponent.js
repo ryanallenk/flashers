@@ -10,7 +10,6 @@ const containerStyle = {
   height: '100vh'
 };
 
-
 function MainMapComponent() {
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState(false)
@@ -43,9 +42,7 @@ function MainMapComponent() {
   }, () => {
     setErrorMessage('We could not find your location.')
   })
-  
 }
-
 
   }, [])
     
@@ -79,7 +76,5 @@ function MainMapComponent() {
       </GoogleMap>
   ) : <></>
 }
-
-
 
 export default React.memo(MainMapComponent)

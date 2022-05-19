@@ -1,4 +1,3 @@
-
 import './App.css';
 import MainMapComponent from "./Components/MainMapComponent";
 import { Modal } from './Components/MarkerModal';
