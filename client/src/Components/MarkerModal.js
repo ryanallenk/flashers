@@ -17,7 +17,7 @@ export const Modal = ({setShowModal, data}) => {
         <button onClick={() => setShowModal(false)}>X</button>
         <h2>This is climb #{data.id}</h2>
         <br></br>
-        <img alt="Climb Image" src={data.image}/>
+        <img style={{height: '300px', width: '300px'}} alt="Climb Image" src={data.image}/>
         <br></br>
         <p>Latitude: {data.lat}</p>
         <br></br>

@@ -11,6 +11,7 @@ export const FormModal = ({ data, setShowForm }) => {
   const [description, setDescription] = useState("");
   const [grade, setGrade] = useState(null);
   const [rating, setRating] = useState(null);
+  const [image, setImage] = useState("");
 
   const gradeOptions = [
     { value: 'v0', label: 'V0' },
@@ -46,9 +47,9 @@ export const FormModal = ({ data, setShowForm }) => {
     }
   };
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    
     const formSubmitData = {
-      image: "",
+      image: image,
       climb_description: description,
       grade: grade,
       user_rating: rating,
@@ -71,6 +72,7 @@ export const FormModal = ({ data, setShowForm }) => {
     ReactDom.createPortal(
       <div className="container" ref={modalRef} onClick={closeModal}>
         <div className="form_modal">
+          <ClimbImage setImage={setImage} />
           <form onSubmit={handleSubmit}>
           <button onClick={() => setShowForm(false)}>X</button>
           <div className="userClick_coords">

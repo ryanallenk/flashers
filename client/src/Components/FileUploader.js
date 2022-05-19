@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function ClimbImage() {
+export default function ClimbImage({setImage}) {
     const tempImage = 'https://i.imgur.com/TaEzV7X.jpeg'
     const [values, setValues] = useState({
         imagePreviewUrl: tempImage,
@@ -27,7 +27,7 @@ export default function ClimbImage() {
         };
         reader.readAsDataURL(inFile);
     };
-    // Call the API Backend, will describe this later
+    // Call the IMGUR API
     const handleSubmit = () => {
 
         return axios
@@ -37,7 +37,7 @@ export default function ClimbImage() {
                 }
             })
             .then((response) => {
-                console.log("Axios response IMGUR POST", response)
+                setImage(response.data.data.link)
             })
             .catch((error) => {
                 alert("Error occurred while uploading picture, try uploading a smaller image size or try again later.")
