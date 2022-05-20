@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import logo from './round-logo.png'
 
 export default function ClimbImage({currentImage, setImage}) {
-    const tempImage = 'https://i.imgur.com/TaEzV7X.jpeg'
+    const tempImage = logo
     const [values, setValues] = useState({
         imagePreviewUrl: (currentImage || tempImage),
         picFile: null
