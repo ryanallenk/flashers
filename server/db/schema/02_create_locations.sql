@@ -7,5 +7,5 @@ CREATE TABLE locations (
   grade VARCHAR(3),
   user_rating INTEGER,
   climb_description VARCHAR(255),
-  user_id integer REFERENCES users(id)
-)
+  creator_id VARCHAR(255)
+);
