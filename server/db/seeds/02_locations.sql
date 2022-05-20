@@ -1,5 +1,5 @@
-INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, user_id) VALUES (43.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V10', 5,'This is the test description', 1);
-INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, user_id) VALUES (23.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V9', 5, 'This is the test description', 1);
-INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, user_id) VALUES (53.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V5', 5, 'This is the test description', 2);
-INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, user_id) VALUES (73.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V4', 5, 'This is the test description', 2);
-INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, user_id) VALUES (83.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V12', 5,'This is the test description', 2);
+INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES (43.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V10', 5,'This is the test description', 1);
+INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES (23.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V9', 5, 'This is the test description', 1);
+INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES (53.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V5', 5, 'This is the test description', 2);
+INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES (73.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V4', 5, 'This is the test description', 2);
+INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES (83.676364, -79.435127, 'https://i.imgur.com/TaEzV7X.jpeg', 'V12', 5,'This is the test description', 2);

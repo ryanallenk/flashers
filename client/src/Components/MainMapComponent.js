@@ -1,7 +1,7 @@
 import React from 'react'
 import MapMarkers from './Marker';
 import { useState } from 'react'
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, StandaloneSearchBox } from '@react-google-maps/api';
 import { FormModal } from './FormModal';
 const {REACT_APP_API_KEY} = process.env;
 // const {} = use
@@ -15,7 +15,7 @@ function MainMapComponent() {
 
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState({})
-  
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: REACT_APP_API_KEY,
@@ -60,11 +60,6 @@ function MainMapComponent() {
     // addMarker(locationData)
     setShowForm(true);
     setFormData(locationData)  
-  
-    // <FormModal coords={event.latLng.toJSON()} /> 
-    // console.log("You clicked the map")
-    // event.latLng returns an object, call .toString or .toJSON to parse into coordinates
-    // console.log(event.latLng.toString())
   }
 
   return isLoaded ? (
