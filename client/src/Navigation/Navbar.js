@@ -6,15 +6,13 @@ export default function Navbar() {
 
   return (
     <nav className="navigation">
-      <img className="brand-name" src="client\public\flashers.png"></img>
-    
+    <img className="brand-name" src={require('./flashers.png')} />
       <button
         className="hamburger"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
       >
-
       </button>
       <div
         className={
