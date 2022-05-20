@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import ReactDom from "react-dom";
 import { EditFormModal } from "./EditFormModal";
 
+
 export const MarkerModal = ({setShowModal, data, setShowEditFormModal}) => {
   // close the modal when clicking outside the modal.
   const modalRef = useRef();
@@ -10,7 +11,6 @@ export const MarkerModal = ({setShowModal, data, setShowEditFormModal}) => {
       setShowModal(false);
     }
   };
-
   const editForm = () => {
     console.log("Edit form button clicked")
       setShowModal(false);

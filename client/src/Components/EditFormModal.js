@@ -57,7 +57,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       user_rating: rating,
       lat: data.lat,
       lng: data.long,
-      user_id: 1,
+      creator_id: 1,
       id: data.id
     }
     return axios

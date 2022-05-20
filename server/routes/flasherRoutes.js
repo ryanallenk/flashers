@@ -12,23 +12,23 @@ module.exports = (db) => {
 
   router.post('/climbs', (req, res) => {
     console.log(req.body);
-    const {lat, lng, image, grade, user_rating, climb_description, user_id} = req.body;
+    const {lat, lng, image, grade, user_rating, climb_description, creator_id} = req.body;
     
-    const dbCommand = 'INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7)';
+    const dbCommand = 'INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES ($1, $2, $3, $4, $5, $6, $7)';
 
-    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, user_id])
+    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, creator_id])
     .then(data => {
       res.json(data.rows);
     })
   });
 
   router.put("/climbs/:id", (req, res) => {
-    const {lat, lng, image, grade, user_rating, climb_description, user_id, id} = req.body;
+    const {lat, lng, image, grade, user_rating, climb_description, creator_id, id} = req.body;
     console.log(req.body);
     
-    const dbCommand = 'UPDATE locations SET lat = $1, long = $2, image = $3, grade = $4, user_rating = $5, climb_description = $6, user_id = $7 WHERE id = $8'
+    const dbCommand = 'UPDATE locations SET lat = $1, long = $2, image = $3, grade = $4, user_rating = $5, climb_description = $6, creator_id = $7 WHERE id = $8'
 
-    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, user_id, id])
+    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, creator_id, id])
     .then(data => {
       res.json(data.rows);
     })

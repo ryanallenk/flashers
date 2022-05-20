@@ -6,7 +6,8 @@ export default function ClimbImage({currentImage, setImage}) {
     const tempImage = logo
     const [values, setValues] = useState({
         imagePreviewUrl: (currentImage || tempImage),
-        picFile: null
+        picFile: null,
+        uploadSuccess: false
     })
     let fileInput = React.createRef();
 
@@ -38,14 +39,18 @@ export default function ClimbImage({currentImage, setImage}) {
                 }
             })
             .then((response) => {
-                setImage(response.data.data.link)
+                setImage(response.data.data.link);
+                if (response.data.success == true) {
+                    setValues({...values, uploadSuccess: true})
+                    console.log("Your image was successfully uploaded");
+                }
             })
             .catch((error) => {
-                alert("Error occurred while uploading picture, try uploading a smaller image size or try again later.")
-                console.log("Axios error IMGUR POST:", error)
+                alert("Error occurred while uploading picture, try uploading a smaller image size or try again later.");
+                console.log("Axios error IMGUR POST:", error);
             })
 
-    }
+    };
 
     return (
         <div>
@@ -59,7 +64,9 @@ export default function ClimbImage({currentImage, setImage}) {
                     src={values.imagePreviewUrl}
                     alt="..." style={{ objectFit: 'cover' }} height="300" width="300" />
             </div>
+            
             <button onClick={handleSubmit}>Submit</button>
+            {values.uploadSuccess ? <span> Your image was uploaded successfully!</span> : null}
         </div>
     )
-}
+};
