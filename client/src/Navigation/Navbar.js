@@ -2,10 +2,13 @@ import { useState } from "react";
 import LoginButton from "../Components/LoginButton";
 import LogoutButton from "../Components/LogoutButton";
 import Profile from "../Components/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./navbar.css";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const { isLoading } = useAuth0();
+  
 
   return (
     <nav className="navigation">
@@ -29,11 +32,14 @@ export default function Navbar() {
           <li>
             <a href="/">Reset Location</a>
           </li>
+          { isLoading ? 
+          <div>Loading...</div> :
           <li>
-            <LoginButton/>
-            <LogoutButton/>
-            <Profile/>
-          </li>
+          <LoginButton/>
+          <LogoutButton/>
+          <Profile/>
+        </li>
+          } 
           <li>
             <a href="/register">Register</a>
           </li>
