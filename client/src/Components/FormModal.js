@@ -54,7 +54,7 @@ export const FormModal = ({ data, setShowForm }) => {
       user_rating: rating,
       lat: data.lat,
       lng: data.lng,
-      user_id: 1,
+      creator_id: 1,
     }
     return axios
     .post('http://localhost:8080/api/climbs', formSubmitData)
