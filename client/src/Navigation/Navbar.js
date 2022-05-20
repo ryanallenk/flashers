@@ -9,14 +9,13 @@ export default function Navbar() {
 
   return (
     <nav className="navigation">
-    <img className="brand-name" src={require('./flashers.png')} />
+      <img className="brand-name" src={require("./flashers.png")} />
       <button
         className="hamburger"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
-      >
-      </button>
+      ></button>
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
@@ -24,15 +23,19 @@ export default function Navbar() {
       >
         <ul className="nav-buttons">
           <li>
-            <button type="button" a href="/">Reset Location</button>
+            <button type="button" a href="/">
+              Reset Location
+            </button>
           </li>
           <li>
-            <LoginButton/>
-            <LogoutButton/>
-            <Profile/>
+            <LoginButton />
+            <LogoutButton />
+            <Profile />
           </li>
           <li>
-          <button type="button" a href="/">Profile</button>
+            <button type="button" a href="/">
+              Profile
+            </button>
           </li>
         </ul>
       </div>
