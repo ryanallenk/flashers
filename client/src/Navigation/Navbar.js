@@ -25,7 +25,7 @@ export default function Navbar() {
       >
         <ul className="nav-buttons">
           <li>
-            <button type="button" a href="/">
+            <button type="button" >
               Reset Location
             </button>
           </li>
@@ -39,7 +39,7 @@ export default function Navbar() {
             </li>
           )}
           <li>
-            <button type="button" a href="/">
+            <button type="button" >
               Profile
             </button>
           </li>
