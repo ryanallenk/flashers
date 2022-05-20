@@ -1,4 +1,7 @@
 import { useState } from "react";
+import LoginButton from "../Components/LoginButton";
+import LogoutButton from "../Components/LogoutButton";
+import Profile from "../Components/Profile";
 import "./navbar.css";
 
 export default function Navbar() {
@@ -27,7 +30,9 @@ export default function Navbar() {
             <a href="/">Reset Location</a>
           </li>
           <li>
-            <a href="/login">Log In</a>
+            <LoginButton/>
+            <LogoutButton/>
+            <Profile/>
           </li>
           <li>
             <a href="/register">Register</a>
