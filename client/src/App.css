@@ -2,6 +2,7 @@
   font-family: sans-serif;
   text-align: center;
 }
+
 .App button {
   padding: 13px 29px;
   font-size: 1rem;
@@ -9,10 +10,11 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  background: crimson;
+  background: rgb(70, 9, 21);
   color: white;
   cursor: pointer;
 }
+
 #portal .container {
   position: fixed;
   z-index: 9999;
@@ -21,11 +23,13 @@
   bottom: 0;
   right: 0;
   height: 100vh;
+  width: 3000px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.7);
 }
+
 .container .modal {
   z-index: 9999;
   font-family: 'Source Sans Pro', sans-serif;
@@ -53,11 +57,12 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+
 }
 
 .container .climb--image {
   display: flex;
-  transition:transform 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .container .coords {
@@ -78,25 +83,26 @@
 }
 
 .container .modal--body {
- display: flex;
+  display: flex;
   width: 80%;
   flex-direction: row;
 }
 
 .container .modal--footer {
   display: flex;
- }
+}
 
- .container .climb--title {
+.container .climb--title {
   display: flex;
   justify-content: center;
- }
+}
 
 .container .x--button {
-  width: 90%;
+  width: 50%;
   display: flex;
   justify-content: right;
 }
+
 .container .form_modal {
   z-index: 9999;
   width: 80vw;
@@ -111,15 +117,90 @@
   animation: animate 0.3s;
 }
 
+.nav-header {
+  padding-bottom: 60px;
+}
+
+.container .edit {
+  display: flex;
+  justify-content: center;
+}
+
+.container .tg-list-item {
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes animate {
   from {
     transform: scale(0.05);
   }
+
   to {
     transform: scale(1);
   }
 }
 
-.Navbar {
-  background-color: rgb(50, 11, 140);
+/* Styling for checkbox on show page */
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: #363636;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
+
+.boxes {
+  margin: auto;
+  justify-content: flex-start;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]+label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 2px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: #ddd;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+label:last-child {
+  margin-bottom: 0;
+}
+
+input[type="checkbox"]+label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #6cc0e5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked+label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
