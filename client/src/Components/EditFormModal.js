@@ -74,27 +74,20 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
   return (
     ReactDom.createPortal(
       <div className="container" ref={modalRef} onClick={closeModal}>
-        <div className="form_modal">
-          <ClimbImage setImage={setImage} currentImage={data.image}/>
-          <form onSubmit={handleSubmit}>
+        <div className="modal">
+        <div className="modal--header">
+          <div className="x--button">
+            <h4 className="edit--title">Edit Page for Climb #{data.id}</h4>
           <button onClick={() => setShowEditFormModal(false)}>X</button>
-          <div className="userClick_coords">
-            <h1>THIS IS FORM TO EDIT A MARKER FORM</h1>
-            <h1>Click Coordinates</h1>
-            <span>Latitude: {data.lat}</span>
-            <span>Longitude: {data.long}</span>
+        </div>
+        </div>
+        <div className="modal--body"></div>
+        <div className="photo--container">
+          <ClimbImage setImage={setImage} currentImage={data.image}/>
           </div>
+          <form onSubmit={handleSubmit}>
           <div>
-            <label>Description:
-              <input
-              type="text"
-              placeholder={description}
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              />
-            </label>
-          </div>
-          <div>
+          <div className="info--container">
           <label> Grade:
             <Select
             placeholder={grade.toUpperCase()}
@@ -115,8 +108,20 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
 
             />
             </label>
+            </div>
+          <div>
+            <label>Description:
+              <input
+              type="text"
+              placeholder={description}
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+              />
+            </label>
           </div>
-           <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
+          </div>
+           
           </form>
         </div>
       </div>,
@@ -125,3 +130,5 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
   );
 };
   //render the modal JSX in the portal div.
+
+  

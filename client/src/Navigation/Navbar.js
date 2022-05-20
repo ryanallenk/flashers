@@ -6,9 +6,8 @@ export default function Navbar() {
 
   return (
     <nav className="navigation">
-      <a href="/" className="brand-name">
-        Flasher - The App for Boulderers
-      </a>
+      <img className="brand-name" src="client\public\flashers.png"></img>
+    
       <button
         className="hamburger"
         onClick={() => {
@@ -22,7 +21,7 @@ export default function Navbar() {
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <ul>
+        <ul className="nav-buttons">
           <li>
             <a href="/">Reset Location</a>
           </li>

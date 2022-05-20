@@ -21,6 +21,7 @@ export const MarkerModal = ({setShowModal, data, setShowEditFormModal}) => {
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
         <div className="modal--header">
+
         <div className="x--button">
         <button onClick={() => setShowModal(false)}>X</button>
         </div>
@@ -32,20 +33,21 @@ export const MarkerModal = ({setShowModal, data, setShowEditFormModal}) => {
         <div className="info--container">
         <h1 className="climb--title">This is climb #{data.id}</h1>
     
-        <p className="coords"> Latitude: {data.lat} </p>
-       
-        <p className="coords"> Longitude: {data.long} </p>
-      
+        <p className="coords"> Latitude: {data.lat} Longitude: {data.long}</p>
+            
         <p className="coords"> Grade: {data.grade} </p>
        
         <p className="coords"> User Rating: {data.user_rating} </p>
 
+        <p className="edit"><button onClick={editForm}> Edit Form </button></p>
+<div class="boxes">
+  <input type="checkbox" id="box-1"></input>
+  <label for="box-1">Have you climbed here?</label>
+</div>
         </div>
         </div>
-        <p className="description">{data.climb_description} What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <p className="description">{data.climb_description} </p>
       </div>
-      <p><button onClick={editForm}> Edit Form </button></p>
     </div>,
     document.getElementById("portal")
   );

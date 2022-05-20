@@ -56,7 +56,7 @@ export default function ClimbImage({currentImage, setImage}) {
                     ref={fileInput} />
                 <img
                     src={values.imagePreviewUrl}
-                    alt="..." style={{ objectFit: 'cover' }} height="725" width="500" />
+                    alt="..." style={{ objectFit: 'cover' }} height="300" width="300" />
             </div>
             <button onClick={handleSubmit}>Submit</button>
         </div>
