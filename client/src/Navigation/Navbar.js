@@ -8,40 +8,40 @@ import "./navbar.css";
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const { isLoading } = useAuth0();
-  
 
   return (
     <nav className="navigation">
-      <a href="/" className="brand-name">
-        Flasher - The App for Boulderers
-      </a>
+      <img className="brand-name" src={require("./flashers.png")} />
       <button
         className="hamburger"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
-      >
-
-      </button>
+      ></button>
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <ul>
+        <ul className="nav-buttons">
           <li>
-            <a href="/">Reset Location</a>
+            <button type="button" a href="/">
+              Reset Location
+            </button>
           </li>
-          { isLoading ? 
-          <div>Loading...</div> :
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            <li>
+              <LoginButton />
+              <LogoutButton />
+              <Profile />
+            </li>
+          )}
           <li>
-          <LoginButton/>
-          <LogoutButton/>
-          <Profile/>
-        </li>
-          } 
-          <li>
-            <a href="/register">Register</a>
+            <button type="button" a href="/">
+              Profile
+            </button>
           </li>
         </ul>
       </div>
