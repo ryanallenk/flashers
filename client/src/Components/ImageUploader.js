@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import image from './circlelogo.png'
 
 export default function ClimbImage({currentImage, setImage}) {
     const tempImage = 'https://i.imgur.com/TaEzV7X.jpeg'
