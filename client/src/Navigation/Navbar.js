@@ -24,7 +24,7 @@ export default function Navbar() {
       >
         <ul className="nav-buttons">
           <li>
-            <a href="/">Reset Location</a>
+            <button type="button" a href="/">Reset Location</button>
           </li>
           <li>
             <LoginButton/>
@@ -32,7 +32,7 @@ export default function Navbar() {
             <Profile/>
           </li>
           <li>
-            <a href="/register">Register</a>
+          <button type="button" a href="/">Profile</button>
           </li>
         </ul>
       </div>
