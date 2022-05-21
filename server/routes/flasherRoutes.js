@@ -36,8 +36,8 @@ module.exports = (db) => {
   
 
   // flashes table routes
-  // add a "flash" to the table for a 
-  router.post('/api/flashes', (req, res) => {
+  // add a "flash" to the table 
+  router.post('/flashes', (req, res) => {
 
     const {user_id, location_id} = req.body;
     
@@ -49,7 +49,8 @@ module.exports = (db) => {
     })
   });
 
-  router.get('/api/flashes', (req, res) => {
+  // get all flashes for a certain user
+  router.get('/flashes', (req, res) => {
 
     const {user_id} = req.body;
     
