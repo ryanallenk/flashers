@@ -3,8 +3,10 @@ import ReactDom from "react-dom";
 import Select from "react-select";
 import ClimbImage from "./ImageUploader";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const FormModal = ({ data, setShowForm }) => {
+  const { user, isAuthenticated } = useAuth0();
   const modalRef = useRef();
   const [description, setDescription] = useState("");
   const [grade, setGrade] = useState(null);
@@ -45,24 +47,29 @@ export const FormModal = ({ data, setShowForm }) => {
     }
   };
   const handleSubmit = (e) => {
-    const formSubmitData = {
-      image: image,
-      climb_description: description,
-      grade: grade,
-      user_rating: rating,
-      lat: data.lat,
-      lng: data.lng,
-      creator_id: 1,
-    };
-    return axios
-      .post("http://localhost:8080/api/climbs", formSubmitData)
-      .then((res) => {
-        //  console.log(res);
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (!isAuthenticated) {
+      alert("You must be logged in to submit a new boulder.")
+    }
+    else {
+      const formSubmitData = {
+        image: image,
+        climb_description: description,
+        grade: grade,
+        user_rating: rating,
+        lat: data.lat,
+        lng: data.lng,
+        creator_id: 1,
+      };
+      return axios
+        .post("http://localhost:8080/api/climbs", formSubmitData)
+        .then((res) => {
+          //  console.log(res);
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return ReactDom.createPortal(
