@@ -48,6 +48,7 @@ export const FormModal = ({ data, setShowForm }) => {
   };
   const handleSubmit = (e) => {
     if (!isAuthenticated) {
+      e.preventDefault();
       alert("You must be logged in to submit a new boulder.")
     }
     else {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
-  const {user} = useAuth0();
+  const {user, isAuthenticated} = useAuth0();
   console.log(user);
   // close the modal when clicking outside the modal.
   const modalRef = useRef();
@@ -14,9 +14,13 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
     }
   };
   const editForm = () => {
-    console.log("Edit form button clicked");
-    setShowModal(false);
-    setShowEditFormModal(true);
+    if (!isAuthenticated) {
+      alert("You must be logged in to edit an existing climb.")
+    } 
+    else {
+      setShowModal(false);
+      setShowEditFormModal(true);
+    }
   };
   
   

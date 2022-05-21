@@ -4,9 +4,10 @@ import { useState } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
-  StandaloneSearchBox,
 } from "@react-google-maps/api";
 import { FormModal } from "./FormModal";
+import { useAuth0 } from "@auth0/auth0-react";
+
 const { REACT_APP_API_KEY } = process.env;
 // const {} = use
 const containerStyle = {
@@ -15,8 +16,9 @@ const containerStyle = {
 };
 
 function MainMapComponent() {
+  // auth0 authentication object
+  const { isAuthenticated } = useAuth0();
   // two states are tracked by the Map Component -> showForm which is a boolean deciding wheteher the form loads and formData which is the data from the click event passed to the form
-
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({});
 
@@ -64,9 +66,13 @@ function MainMapComponent() {
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
     };
-    // addMarker(locationData)
-    setShowForm(true);
-    setFormData(locationData);
+    if (!isAuthenticated) {
+      alert("Please log in to add a new climb.");
+    }
+    else {
+      setShowForm(true);
+      setFormData(locationData);
+    }
   };
 
   return isLoaded ? (
