@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LoginButton from "../Components/LoginButton";
 import LogoutButton from "../Components/LogoutButton";
 import Profile from "../Components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./navbar.css";
 
-export default function Navbar() {
+export default function Navbar({setShowProfileModal}) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
 
   return (
@@ -35,13 +36,14 @@ export default function Navbar() {
             <li>
               <LoginButton />
               <LogoutButton />
-              <Profile />
             </li>
           )}
           <li>
-            <button type="button" >
+            {isAuthenticated && (<button type="button" onClick={setShowProfileModal(true)}>
               Profile
-            </button>
+            </button> 
+            )}
+           
           </li>
         </ul>
       </div>

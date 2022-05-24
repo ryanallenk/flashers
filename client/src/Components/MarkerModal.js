@@ -50,7 +50,7 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
             </p>
             <div className="boxes">
               <input type="checkbox" id="box-1"></input>
-              <label for="box-1">Have you climbed here?</label>
+              <label htmlFor="box-1">Have you climbed here?</label>
             </div>
           </div>
         </div>
