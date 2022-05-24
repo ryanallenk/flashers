@@ -4,19 +4,21 @@ import { useState } from "react";
 import {
   GoogleMap,
   useJsApiLoader,
-  StandaloneSearchBox,
 } from "@react-google-maps/api";
 import { FormModal } from "./FormModal";
+import { useAuth0 } from "@auth0/auth0-react";
+
 const { REACT_APP_API_KEY } = process.env;
-// const {} = use
+
 const containerStyle = {
   width: "100vw",
   height: "93.5vh",
 };
 
 function MainMapComponent() {
+  // auth0 authentication object
+  const { isAuthenticated } = useAuth0();
   // two states are tracked by the Map Component -> showForm which is a boolean deciding wheteher the form loads and formData which is the data from the click event passed to the form
-
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({});
 
@@ -25,12 +27,10 @@ function MainMapComponent() {
     googleMapsApiKey: REACT_APP_API_KEY,
   });
 
-  // const initInfoWindows = InfoWindow()
-  const initMapMarkers = MapMarkers();
-
   const [map, setMap] = React.useState(null);
   const [lng, setLong] = useState(-79.347015);
   const [lat, setLat] = useState(43.6532);
+  
   const center = {
     lat,
     lng,
@@ -64,9 +64,13 @@ function MainMapComponent() {
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
     };
-    // addMarker(locationData)
-    setShowForm(true);
-    setFormData(locationData);
+    if (!isAuthenticated) {
+      alert("Please log in to add a new climb.");
+    }
+    else {
+      setShowForm(true);
+      setFormData(locationData);
+    }
   };
 
   return isLoaded ? (
@@ -79,7 +83,7 @@ function MainMapComponent() {
       options={{ mapId: "707f031a8aaa1435" }}
       onDblClick={(event) => mapClickHandler(event)}
     >
-      {initMapMarkers}
+      {<MapMarkers/>}
       {showForm ? (
         <FormModal data={formData} setShowForm={setShowForm} />
       ) : null}

@@ -47,6 +47,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
     }
   };
   const handleSubmit = (e) => {
+    // e.preventDefault();
     const formSubmitData = {
       image: image,
       climb_description: description,
@@ -57,6 +58,8 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       creator_id: 1,
       id: data.id,
     };
+    
+ 
     return axios
       .put(`http://localhost:8080/api/climbs/${id}`, formSubmitData)
       .then((res) => {
