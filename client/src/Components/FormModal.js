@@ -48,7 +48,6 @@ export const FormModal = ({ data, setShowForm }) => {
   };
   const handleSubmit = (e) => {
     if (!isAuthenticated) {
-      e.preventDefault();
       alert("You must be logged in to submit a new boulder.")
     }
     else {
@@ -61,6 +60,7 @@ export const FormModal = ({ data, setShowForm }) => {
         lng: data.lng,
         creator_id: 1,
       };
+
       return axios
         .post("http://localhost:8080/api/climbs", formSubmitData)
         .then((res) => {
@@ -71,6 +71,7 @@ export const FormModal = ({ data, setShowForm }) => {
           console.log(error);
         });
     }
+    setShowForm(false);
   };
 
   return ReactDom.createPortal(
