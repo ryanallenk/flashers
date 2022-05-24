@@ -63,7 +63,7 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
             />
           </div>
           <div className="info--container">
-            <h1 className="climb--title">This is climb #{data.id}</h1>
+            <h1 className="climb--title">#{data.id} {data.climb_name}</h1>
 
             <p className="coords">
               {" "}

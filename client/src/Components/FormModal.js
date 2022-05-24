@@ -12,6 +12,7 @@ export const FormModal = ({ data, setShowForm }) => {
   const [grade, setGrade] = useState(null);
   const [rating, setRating] = useState(null);
   const [image, setImage] = useState("");
+  const [climbName, setClimbName] = useState("");
 
   const gradeOptions = [
     { value: "v0", label: "V0" },
@@ -59,6 +60,7 @@ export const FormModal = ({ data, setShowForm }) => {
         lat: data.lat,
         lng: data.lng,
         creator_id: user.sub,
+        climb_name: climbName,
       };
 
       return axios
@@ -85,6 +87,16 @@ export const FormModal = ({ data, setShowForm }) => {
               <h1>Click Coordinates</h1>
               <span>Latitude: {data.lat}</span>
               <span>Longitude: {data.lng}</span>
+            </div>
+            <div>
+              <label>
+                Name:
+                <input
+                  type="text"
+                  value={climbName}
+                  onChange={(event) => setClimbName(event.target.value)}
+                />
+              </label>
             </div>
             <div>
               <label>

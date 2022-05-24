@@ -12,6 +12,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
   const [grade, setGrade] = useState(data.grade);
   const [rating, setRating] = useState(data.user_rating);
   const [image, setImage] = useState(data.image);
+  const [climbName, setClimbName] = useState(data.climb_name);
 
   const gradeOptions = [
     { value: "v0", label: "V0" },
@@ -57,6 +58,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       lng: data.long,
       creator_id: 1,
       id: data.id,
+      climb_name: climbName
     };
     
  
@@ -118,6 +120,17 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
                   placeholder={description}
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
+                />
+              </label>
+            </div>
+            <div>
+              <label>
+                Name:
+                <input
+                  type="text"
+                  value={climbName}
+                  placeholder={climbName}
+                  onChange={(event) => setClimbName(event.target.value)}
                 />
               </label>
             </div>
