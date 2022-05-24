@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import CurrentMarkerProvider from './providers/CurrentMarkerProvider';
 import ModalProvider from './providers/ModalProvider';
 import EditFormModalProvider from './providers/EditFormModalProvider';
+import ProfileModalProvider from './providers/ProfileModalProvider';
 import { Auth0Provider } from "@auth0/auth0-react";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,9 +18,11 @@ root.render(
     >
     <EditFormModalProvider>
     <ModalProvider>
+    <ProfileModalProvider>
     <CurrentMarkerProvider>
       <App />
     </CurrentMarkerProvider>
+    </ProfileModalProvider>
     </ModalProvider>
     </EditFormModalProvider>
     </Auth0Provider>
