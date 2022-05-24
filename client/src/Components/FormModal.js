@@ -58,7 +58,7 @@ export const FormModal = ({ data, setShowForm }) => {
         user_rating: rating,
         lat: data.lat,
         lng: data.lng,
-        creator_id: 1,
+        creator_id: user.sub,
       };
 
       return axios

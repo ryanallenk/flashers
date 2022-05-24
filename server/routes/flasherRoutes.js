@@ -10,6 +10,14 @@ module.exports = (db) => {
     })
   });
 
+  router.get('/climbs/:user_id', (req, res) => {
+    const dbCommand = 'SELECT COUNT (*) FROM locations WHERE creator_id = $1';
+    db.query(dbCommand, [req.params.user_id])
+    .then(data => {
+      res.json(data.rows);
+    })
+  });
+
   router.post('/climbs', (req, res) => {
 
     const {lat, lng, image, grade, user_rating, climb_description, creator_id} = req.body;
@@ -50,13 +58,11 @@ module.exports = (db) => {
   });
 
   // get all flashes for a certain user
-  router.get('/flashes', (req, res) => {
-
-    const {user_id} = req.body;
+  router.get(`/flashes/:user_id`, (req, res) => {
     
-    const dbCommand = 'SELECT * FROM flashes WHERE user_id = $1 JOIN locations ON locations.id = location_id)';
+    const dbCommand = "SELECT COUNT (*) FROM flashes WHERE user_id = $1";
 
-    db.query(dbCommand, [user_id])
+    db.query(dbCommand, [req.params.user_id])
     .then(data => {
       res.json(data.rows);
     })
