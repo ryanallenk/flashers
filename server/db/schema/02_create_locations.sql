@@ -7,5 +7,6 @@ CREATE TABLE locations (
   grade VARCHAR(3),
   user_rating INTEGER,
   climb_description VARCHAR(255),
-  creator_id VARCHAR(255)
+  creator_id VARCHAR(255),
+  climb_name VARCHAR(255)
 );
