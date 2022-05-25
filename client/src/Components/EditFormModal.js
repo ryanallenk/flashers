@@ -72,6 +72,14 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       });
   };
 
+    // custom styles for react select component
+    const customStyles = {
+      option: (provided, state) => ({
+        ...provided,
+        color: 'black',
+      })
+    };
+
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
@@ -95,6 +103,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
               {" "}
               Grade:
               <Select
+                styles={customStyles}
                 placeholder={grade.toUpperCase()}
                 value={grade}
                 onChange={(event) => setGrade(event.value)}
@@ -107,6 +116,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
                 {" "}
                 User Rating:
                 <Select
+                  styles={customStyles}
                   placeholder={rating}
                   value={rating}
                   onChange={(event) => setRating(event.value)}

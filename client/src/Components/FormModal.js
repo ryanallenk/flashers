@@ -75,6 +75,14 @@ export const FormModal = ({ data, setShowForm }) => {
     setShowForm(false);
   };
 
+  // custom styles for react select component
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      color: 'black',
+    })
+  };
+
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
@@ -128,6 +136,7 @@ export const FormModal = ({ data, setShowForm }) => {
                 {" "}
                 Grade:
                 <Select
+                  styles={customStyles}
                   onChange={(event) => setGrade(event.value)}
                   options={gradeOptions}
                   />
@@ -139,6 +148,7 @@ export const FormModal = ({ data, setShowForm }) => {
                 {" "}
                 User Rating:
                 <Select
+                  styles={customStyles}
                   onChange={(event) => setRating(event.value)}
                   options={ratingOptions}
                   />
