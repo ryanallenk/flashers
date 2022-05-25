@@ -29,7 +29,7 @@ export const ProfileInfoModal = ({setShowProfileModal}) => {
         .catch(error => {
           console.log(error)
         })
-    }, [])
+    }, )
 
     // get routes created by user
     useEffect(() => {
@@ -41,7 +41,7 @@ export const ProfileInfoModal = ({setShowProfileModal}) => {
         .catch(error => {
           console.log(error)
         })
-    }, [])
+    },)
 
     return ReactDom.createPortal(
         <div className="container" ref={modalRef} onClick={closeModal}>

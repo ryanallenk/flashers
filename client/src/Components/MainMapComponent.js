@@ -21,6 +21,7 @@ function MainMapComponent() {
   // two states are tracked by the Map Component -> showForm which is a boolean deciding wheteher the form loads and formData which is the data from the click event passed to the form
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({});
+  const [showLoading, setShowLoading] = useState(false);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -38,6 +39,9 @@ function MainMapComponent() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const onLoad = React.useCallback(function callback(map) {
+    if (!navigator.geolocation.position) {
+      document.getElementById("loading").setAttribute('style', 'display: inline')
+    }
     // logic for the location detection upon arrival
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -47,12 +51,14 @@ function MainMapComponent() {
           console.log("lat:", lat, "long:", lng);
           setLat(lat);
           setLong(lng);
+          document.getElementById("loading").setAttribute('style', 'display: none')
         },
         () => {
           setErrorMessage("We could not find your location.");
         }
       );
     }
+
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {
