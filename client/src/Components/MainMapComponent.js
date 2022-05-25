@@ -1,10 +1,7 @@
 import React from "react";
 import MapMarkers from "./Marker";
 import { useState } from "react";
-import {
-  GoogleMap,
-  useJsApiLoader,
-} from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { FormModal } from "./FormModal";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -21,6 +18,7 @@ function MainMapComponent() {
   // two states are tracked by the Map Component -> showForm which is a boolean deciding wheteher the form loads and formData which is the data from the click event passed to the form
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({});
+  const [showLoading, setShowLoading] = useState(false);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -30,7 +28,7 @@ function MainMapComponent() {
   const [map, setMap] = React.useState(null);
   const [lng, setLong] = useState(-79.347015);
   const [lat, setLat] = useState(43.6532);
-  
+
   const center = {
     lat,
     lng,
@@ -38,6 +36,11 @@ function MainMapComponent() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const onLoad = React.useCallback(function callback(map) {
+    if (!navigator.geolocation.position) {
+      document
+        .getElementById("loading")
+        .setAttribute("style", "display: inline");
+    }
     // logic for the location detection upon arrival
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -47,6 +50,9 @@ function MainMapComponent() {
           console.log("lat:", lat, "long:", lng);
           setLat(lat);
           setLong(lng);
+          document
+            .getElementById("loading")
+            .setAttribute("style", "display: none");
         },
         () => {
           setErrorMessage("We could not find your location.");
@@ -66,8 +72,7 @@ function MainMapComponent() {
     };
     if (!isAuthenticated) {
       alert("Please log in to add a new climb.");
-    }
-    else {
+    } else {
       setShowForm(true);
       setFormData(locationData);
     }
@@ -83,7 +88,7 @@ function MainMapComponent() {
       options={{ mapId: "707f031a8aaa1435" }}
       onDblClick={(event) => mapClickHandler(event)}
     >
-      {<MapMarkers/>}
+      {<MapMarkers />}
       {showForm ? (
         <FormModal data={formData} setShowForm={setShowForm} />
       ) : null}

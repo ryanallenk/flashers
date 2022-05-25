@@ -52,12 +52,36 @@
   padding-right: 20px;
 }
 
+.container .new-form-field {
+  display: flex;
+}
+
+.container .new-photo--container {
+  display: flex;
+}
+
+.container .info-container-header {
+  display: flex;
+  width: 90%;
+  width: 90%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
 .container .info--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
 }
+
+.container .new-info--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
 
 .container .climb--image {
   display: flex;
@@ -67,6 +91,10 @@
 .container .coords {
   display: flex;
   justify-content: center;
+}
+
+.container .react-select-23-input {
+color: black;
 }
 
 .container .description {

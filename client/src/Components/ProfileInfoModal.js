@@ -1,6 +1,6 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ReactDom from "react-dom";
-import Select from "react-select";
+import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Data } from "@react-google-maps/api";
 import profileModalContext from "../providers/ProfileModalProvider";
@@ -8,28 +8,55 @@ import profileModalContext from "../providers/ProfileModalProvider";
 export const ProfileInfoModal = ({ setShowProfileModal }) => {
   const { user } = useAuth0();
   const modalRef = useRef();
+  const [flashes, setFlashes] = useState(0);
+  const [routes, setRoutes] = useState(0);
+  const user_id = user.sub;
+
   const closeModal = (e) => {
     if (e.target === modalRef.current) {
       setShowProfileModal(false);
     }
   };
-  console.log(user);
-  //   const editProfile = () => {
-  //     console.log("Edit profile button clicked");
-  //     setShowModal(false);
-  //     setShowEditProfileModal(true);
-  //   };
+
+  // get routes flashed by user
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/flashes/${user_id}`)
+      .then((res) => {
+        // console.log(res)
+        setFlashes(res.data[0].count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  // get routes created by user
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/climbs/${user_id}`)
+      .then((res) => {
+        // console.log(res)
+        setRoutes(res.data[0].count);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
-      
       <div className="modal">
-      <div className="modal--header">
-      <div className="x--button">
-        <button class="button-17" onClick={() => setShowProfileModal(false)}>
-          RETURN TO MAP
-        </button>
-      </div>
-      </div>
+        <div className="modal--header">
+          <div className="x--button">
+            <button
+              className="button-17"
+              onClick={() => setShowProfileModal(false)}
+            >
+              RETURN TO MAP
+            </button>
+          </div>
+        </div>
         <div className="modal--body">
           <div className="photo--container">
             <img
@@ -40,14 +67,12 @@ export const ProfileInfoModal = ({ setShowProfileModal }) => {
             />
           </div>
           <div className="info--container">
-            <div className="user--details">
-              <h2 className="name-header">Welcome, {user.name}!</h2>
-              <br></br>
-              <p>Email Address: {user.email}</p>
-              <p>Routes Flashed: </p>
-              <p>Routes Created: </p>
-              <p></p>
-            </div>
+            <h2 className="info-container-header">Profile Details</h2>
+            <p>Email: {user.email}</p>
+            <p>Name: {user.name}</p>
+            <p>Routes Flashed: {flashes} </p>
+            <p>Routes Created: {routes} </p>
+            <p></p>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ export const FormModal = ({ data, setShowForm }) => {
   const [grade, setGrade] = useState(null);
   const [rating, setRating] = useState(null);
   const [image, setImage] = useState("");
+  const [climbName, setClimbName] = useState("");
 
   const gradeOptions = [
     { value: "v0", label: "V0" },
@@ -57,7 +58,8 @@ export const FormModal = ({ data, setShowForm }) => {
         user_rating: rating,
         lat: data.lat,
         lng: data.lng,
-        creator_id: 1,
+        creator_id: user.sub,
+        climb_name: climbName,
       };
 
       return axios
@@ -75,29 +77,49 @@ export const FormModal = ({ data, setShowForm }) => {
 
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
-      <div className="x--button">
-        <button class="button-17" onClick={() => setShowForm(false)}>
-          X
-        </button>
-      </div>
       <div className="modal">
-      <div className="modal--body">
         <div className="modal--header">
-          <ClimbImage setImage={setImage} />
+          <div className="x--button">
+            <button class="button-17" onClick={() => setShowForm(false)}>
+              RETURN TO MAP
+            </button>
+          </div>
+        </div>
+        <div className="modal--body">
+          <div className="new-photo--container">
+            <ClimbImage setImage={setImage} />
+          </div>
+            <div className="new-info--container">
           <form onSubmit={handleSubmit}>
-            <div className="userClick_coords">
-              <h2>Click Coordinates</h2>
+            <label>
+              <h2 className="info-container-header">Coordinates</h2>
               <span>Latitude: {data.lat}</span>
+              <br></br>
               <span>Longitude: {data.lng}</span>
+              </label>
+            <div>
+              <div></div>
+              <br></br>
+              <label>
+                Name:
+                <br></br>
+                <input className="new-form-field"
+                  type="text"
+                  value={climbName}
+                  onChange={(event) => setClimbName(event.target.value)}
+                />
+              </label>
             </div>
+            <br></br>
             <div>
               <label>
                 Description:
+                <br></br>
                 <input
                   type="text"
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
-                />
+                  />
               </label>
             </div>
             <div>
@@ -108,7 +130,7 @@ export const FormModal = ({ data, setShowForm }) => {
                 <Select
                   onChange={(event) => setGrade(event.value)}
                   options={gradeOptions}
-                />
+                  />
               </label>
             </div>
             <div>
@@ -119,13 +141,14 @@ export const FormModal = ({ data, setShowForm }) => {
                 <Select
                   onChange={(event) => setRating(event.value)}
                   options={ratingOptions}
-                />
+                  />
               </label>
             </div>
+
             <br></br>
-            <input class="button-17" type="submit" value="Submit" />
+            <input className="button-17" type="submit" value="Submit" />
           </form>
-        </div>
+                  </div>
         </div>
       </div>
     </div>,

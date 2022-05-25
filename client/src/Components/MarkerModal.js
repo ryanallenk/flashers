@@ -63,7 +63,9 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
             />
           </div>
           <div className="info--container">
-            <h1 className="climb--title">This is climb #{data.id}</h1>
+            <h1 className="climb--title">
+              #{data.id} {data.climb_name}
+            </h1>
 
             <p className="coords">
               {" "}
@@ -83,7 +85,7 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
 
             <div className="boxes">
               <input type="checkbox" onClick={handleCheck} id="box-1"></input>
-              <label for="box-1">Have you climbed here?</label>
+              <label for="box-1">Have you flashed?</label>
             </div>
           </div>
         </div>

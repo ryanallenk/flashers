@@ -10,25 +10,33 @@ module.exports = (db) => {
     })
   });
 
+  router.get('/climbs/:user_id', (req, res) => {
+    const dbCommand = 'SELECT COUNT (*) FROM locations WHERE creator_id = $1';
+    db.query(dbCommand, [req.params.user_id])
+    .then(data => {
+      res.json(data.rows);
+    })
+  });
+
   router.post('/climbs', (req, res) => {
 
-    const {lat, lng, image, grade, user_rating, climb_description, creator_id} = req.body;
+    const {lat, lng, image, grade, user_rating, climb_description, creator_id, climb_name} = req.body;
     
-    const dbCommand = 'INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id) VALUES ($1, $2, $3, $4, $5, $6, $7)';
+    const dbCommand = 'INSERT INTO locations (lat, long, image, grade, user_rating, climb_description, creator_id, climb_name) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
 
-    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, creator_id])
+    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, creator_id, climb_name])
     .then(data => {
       res.json(data.rows);
     })
   });
 
   router.put("/climbs/:id", (req, res) => {
-    const {lat, lng, image, grade, user_rating, climb_description, creator_id, id} = req.body;
+    const {lat, lng, image, grade, user_rating, climb_description, creator_id, id, climb_name} = req.body;
 
     
-    const dbCommand = 'UPDATE locations SET lat = $1, long = $2, image = $3, grade = $4, user_rating = $5, climb_description = $6, creator_id = $7 WHERE id = $8'
+    const dbCommand = 'UPDATE locations SET lat = $1, long = $2, image = $3, grade = $4, user_rating = $5, climb_description = $6, creator_id = $7, climb_name = $9 WHERE id = $8'
 
-    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, creator_id, id])
+    db.query(dbCommand, [lat, lng, image, grade, user_rating, climb_description, creator_id, id, climb_name])
     .then(data => {
       res.json(data.rows);
     })
@@ -50,13 +58,11 @@ module.exports = (db) => {
   });
 
   // get all flashes for a certain user
-  router.get('/flashes', (req, res) => {
-
-    const {user_id} = req.body;
+  router.get(`/flashes/:user_id`, (req, res) => {
     
-    const dbCommand = 'SELECT * FROM flashes WHERE user_id = $1 JOIN locations ON locations.id = location_id)';
+    const dbCommand = "SELECT COUNT (*) FROM flashes WHERE user_id = $1";
 
-    db.query(dbCommand, [user_id])
+    db.query(dbCommand, [req.params.user_id])
     .then(data => {
       res.json(data.rows);
     })
