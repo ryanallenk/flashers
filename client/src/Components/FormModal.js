@@ -48,9 +48,8 @@ export const FormModal = ({ data, setShowForm }) => {
   };
   const handleSubmit = (e) => {
     if (!isAuthenticated) {
-      alert("You must be logged in to submit a new boulder.")
-    }
-    else {
+      alert("You must be logged in to submit a new boulder.");
+    } else {
       const formSubmitData = {
         image: image,
         climb_description: description,
@@ -76,13 +75,18 @@ export const FormModal = ({ data, setShowForm }) => {
 
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
+      <div className="x--button">
+        <button class="button-17" onClick={() => setShowForm(false)}>
+          X
+        </button>
+      </div>
       <div className="modal">
+      <div className="modal--body">
         <div className="modal--header">
           <ClimbImage setImage={setImage} />
           <form onSubmit={handleSubmit}>
-            <button onClick={() => setShowForm(false)}>X</button>
             <div className="userClick_coords">
-              <h1>Click Coordinates</h1>
+              <h2>Click Coordinates</h2>
               <span>Latitude: {data.lat}</span>
               <span>Longitude: {data.lng}</span>
             </div>
@@ -97,6 +101,7 @@ export const FormModal = ({ data, setShowForm }) => {
               </label>
             </div>
             <div>
+              <br></br>
               <label>
                 {" "}
                 Grade:
@@ -107,6 +112,7 @@ export const FormModal = ({ data, setShowForm }) => {
               </label>
             </div>
             <div>
+              <br></br>
               <label>
                 {" "}
                 User Rating:
@@ -116,8 +122,10 @@ export const FormModal = ({ data, setShowForm }) => {
                 />
               </label>
             </div>
-            <input type="submit" value="Submit" />
+            <br></br>
+            <input class="button-17" type="submit" value="Submit" />
           </form>
+        </div>
         </div>
       </div>
     </div>,

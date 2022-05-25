@@ -55,12 +55,6 @@ export default function ClimbImage({ currentImage, setImage }) {
   return (
     <div>
       <div onClick={() => editPic()}>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          ref={fileInput}
-        />
         <img
           src={values.imagePreviewUrl}
           alt="..."
@@ -68,9 +62,17 @@ export default function ClimbImage({ currentImage, setImage }) {
           height="300"
           width="300"
         />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          ref={fileInput}
+        />
       </div>
-
-      <button onClick={handleSubmit}>Submit</button>
+      <br></br>
+      <button class="button-17" onClick={handleSubmit}>
+        Submit
+      </button>
       {values.uploadSuccess ? (
         <span> Your image was uploaded successfully!</span>
       ) : null}

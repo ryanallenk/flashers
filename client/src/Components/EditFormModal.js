@@ -58,8 +58,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       creator_id: 1,
       id: data.id,
     };
-    
- 
+
     return axios
       .put(`http://localhost:8080/api/climbs/${id}`, formSubmitData)
       .then((res) => {
@@ -76,29 +75,31 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       <div className="modal">
         <div className="modal--header">
           <div className="x--button">
-            <h4 className="edit--title">Edit Page for Climb #{data.id}</h4>
-            <button onClick={() => setShowEditFormModal(false)}>X</button>
+            <button
+              class="button-17"
+              onClick={() => setShowEditFormModal(false)}
+            >
+              RETURN TO MAP
+            </button>
           </div>
         </div>
-        <div className="modal--body"></div>
-        <div className="photo--container">
-          <ClimbImage setImage={setImage} currentImage={data.image} />
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <div className="info--container">
-              <label>
-                {" "}
-                Grade:
-                <Select
-                  placeholder={grade.toUpperCase()}
-                  value={grade}
-                  onChange={(event) => setGrade(event.value)}
-                  options={gradeOptions}
-                />
-              </label>
-            </div>
+        <div className="modal--body">
+          <div className="photo--container">
+            <ClimbImage setImage={setImage} currentImage={data.image} />
+          </div>
+          <form className="info--container" onSubmit={handleSubmit}>
+            <label>
+              {" "}
+              Grade:
+              <Select
+                placeholder={grade.toUpperCase()}
+                value={grade}
+                onChange={(event) => setGrade(event.value)}
+                options={gradeOptions}
+              />
+            </label>
             <div>
+              <br></br>
               <label>
                 {" "}
                 User Rating:
@@ -110,9 +111,11 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
                 />
               </label>
             </div>
+            <br></br>
             <div>
               <label>
                 Description:
+                <br></br>
                 <input
                   type="text"
                   placeholder={description}
@@ -121,9 +124,10 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
                 />
               </label>
             </div>
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
+            <br></br>
+            <input className="button-17" type="submit" value="Submit" />
+          </form>
+        </div>
       </div>
     </div>,
     document.getElementById("portal")

@@ -5,7 +5,7 @@ import Profile from "../Components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./navbar.css";
 
-export default function Navbar({setShowProfileModal}) {
+export default function Navbar({ setShowProfileModal }) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
@@ -26,8 +26,11 @@ export default function Navbar({setShowProfileModal}) {
       >
         <ul className="nav-buttons">
           <li>
-            <button type="button" >
-              Reset Location
+            <button 
+            class="button-17" 
+            type="button">
+              <span class="text">Reset Location</span>
+              
             </button>
           </li>
           {isLoading ? (
@@ -39,11 +42,15 @@ export default function Navbar({setShowProfileModal}) {
             </li>
           )}
           <li>
-            {isAuthenticated && (<button type="button" onClick={setShowProfileModal(true)}>
-              Profile
-            </button> 
+            {isAuthenticated && (
+              <button
+                class="button-17"
+                type="button"
+                onClick={setShowProfileModal(true)}
+              >
+                Profile
+              </button>
             )}
-           
           </li>
         </ul>
       </div>

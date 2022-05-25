@@ -12,7 +12,7 @@ const { REACT_APP_API_KEY } = process.env;
 
 const containerStyle = {
   width: "100vw",
-  height: "93.5vh",
+  height: "100vh",
 };
 
 function MainMapComponent() {

@@ -27,19 +27,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.867);
 }
 
 .container .modal {
   z-index: 9999;
   font-family: 'Source Sans Pro', sans-serif;
   width: 850px;
-  height: 550px;
+  height: 850px;
   color: aliceblue;
-  background-color: #2e2e2e9c;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   border-radius: 15px;
   position: relative;
@@ -55,9 +55,8 @@
 .container .info--container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-
 }
 
 .container .climb--image {
@@ -72,14 +71,23 @@
 
 .container .description {
   display: flex;
-  flex-direction: left;
+  justify-content: center;
   width: 90%;
+  width: 90%;
+ padding-top: 20px;
+  border-top: 1px solid rgb(255, 255, 255);
+}
+
+.container .name-header {
+  display: flex;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding-bottom: 10px;
 }
 
 .container .modal--header {
-  width: 98%;
-  display: inline-flex;
+  display: flex;
   justify-content: right;
+  padding-bottom: 100px;
 }
 
 .container .modal--body {
@@ -98,9 +106,8 @@
 }
 
 .container .x--button {
-  width: 50%;
   display: flex;
-  justify-content: right;
+  justify-content:center
 }
 
 .container .form_modal {
@@ -115,10 +122,6 @@
   border-radius: 2px;
   position: relative;
   animation: animate 0.3s;
-}
-
-.nav-header {
-  padding-bottom: 60px;
 }
 
 .container .edit {
