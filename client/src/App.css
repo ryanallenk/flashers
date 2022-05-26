@@ -102,7 +102,7 @@ color: black;
 
 .container .description {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
   padding-top: 20px;
   font-family: 'Roboto', sans-serif;
