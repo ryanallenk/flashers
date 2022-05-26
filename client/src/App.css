@@ -13,6 +13,7 @@
   background: rgb(70, 9, 21);
   color: white;
   cursor: pointer;
+  font-family: sans-serif;
 }
 
 #portal .container {
@@ -28,11 +29,12 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.867);
+  font-family: sans-serif;
 }
 
 .container .modal {
   z-index: 9999;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: sans-serif;
   width: 850px;
   height: 850px;
   color: aliceblue;
