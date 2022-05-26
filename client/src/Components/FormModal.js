@@ -119,6 +119,7 @@ export const FormModal = ({ data, setShowForm }) => {
                   {" "}
                   Grade:
                   <Select
+                    styles={customStyles}
                     onChange={(event) => setGrade(event.value)}
                     options={gradeOptions}
                   />

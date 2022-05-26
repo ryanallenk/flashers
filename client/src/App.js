@@ -1,5 +1,5 @@
 import './App.css';
-import './app.scss';
+import './App.scss';
 import MainMapComponent from "./Components/MainMapComponent";
 import { MarkerModal } from './Components/MarkerModal';
 import MapMarkersProvider from './providers/MapMarkersProvider';
