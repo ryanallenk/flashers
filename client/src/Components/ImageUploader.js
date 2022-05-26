@@ -73,7 +73,7 @@ export default function ClimbImage({ currentImage, setImage }) {
       </div>
       <br></br>
       <button class="button-38" onClick={handleSubmit}>
-        Submit
+        Upload
       </button>
       {values.uploadSuccess ? (
         <span> Your image was uploaded successfully!</span>

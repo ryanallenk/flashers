@@ -26,8 +26,8 @@ function MainMapComponent() {
   });
 
   const [map, setMap] = React.useState(null);
-  const [lng, setLong] = useState(-79.347015);
-  const [lat, setLat] = useState(43.6532);
+  const [lng, setLong] = useState(-79.437361);
+  const [lat, setLat] = useState(43.668754);
 
   const center = {
     lat,
@@ -36,11 +36,11 @@ function MainMapComponent() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const onLoad = React.useCallback(function callback(map) {
-    if (!navigator.geolocation.position) {
-      document
-        .getElementById("loading")
-        .setAttribute("style", "display: inline");
-    }
+    // if (!navigator.geolocation.position) {
+    //   document
+    //     .getElementById("loading")
+    //     .setAttribute("style", "display: inline");
+    // }
     // logic for the location detection upon arrival
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -50,9 +50,9 @@ function MainMapComponent() {
           console.log("lat:", lat, "long:", lng);
           setLat(lat);
           setLong(lng);
-          document
-            .getElementById("loading")
-            .setAttribute("style", "display: none");
+          // document
+          //   .getElementById("loading")
+          //   .setAttribute("style", "display: none");
         },
         () => {
           setErrorMessage("We could not find your location.");
