@@ -47,11 +47,9 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
         <div className="modal--header">
-          <div className="x--button">
-            <button class="button-17" onClick={() => setShowModal(false)}>
-              RETURN TO MAP
-            </button>
-          </div>
+          <button class="button-38" onClick={() => setShowModal(false)}>
+            RETURN TO MAP
+          </button>
         </div>
         <div className="modal--body">
           <div className="photo--container">
@@ -63,47 +61,34 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
             />
           </div>
           <div className="info--container">
-            <h1 className="climb--title">
+            <h2 className="info-container-header">
               #{data.id} {data.climb_name}
-            </h1>
-
-            <p className="coords">
+            </h2>
+            <p>
               {" "}
-              Latitude: {data.lat}, Longitude: {data.long}
+              Latitude: {data.lat}
+              <br></br>
+              Longitude: {data.long}
             </p>
+            <p> Grade: {data.grade} </p>
 
-            <p className="coords"> Grade: {data.grade} </p>
-
-            <p className="coords"> User Rating: {data.user_rating} </p>
-
-            <p className="edit">
-              <button class="button-17" onClick={editForm}>
-                {" "}
-                Edit Climb Details{" "}
-              </button>
-            </p>
+            <p> User Rating: {data.user_rating} </p>
 
             <div className="boxes">
               <input type="checkbox" onClick={handleCheck} id="box-1"></input>
               <label for="box-1">Have you flashed?</label>
             </div>
+            <br></br>
+            <p>
+              <button class="button-38" onClick={editForm}>
+                {" "}
+                Edit Climb Details{" "}
+              </button>
+            </p>
           </div>
         </div>
         <br></br>
-        <p className="description">
-          {data.climb_description}Contrary to popular belief, Lorem Ipsum is not
-          simply random text. It has roots in a piece of classical Latin
-          literature from 45 BC, making it over 2000 years old. Richard
-          McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-          looked up one of the more obscure Latin words, consectetur, from a
-          Lorem Ipsum passage, and going through the cites of the word in
-          classical literature, discovered the undoubtable source. Lorem Ipsum
-          comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-          Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
-          This book is a treatise on the theory of ethics, very popular during
-          the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-          amet..", comes from a line in section 1.10.32.{" "}
-        </p>
+        <p className="description">{data.climb_description} </p>
       </div>
     </div>,
     document.getElementById("portal")

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "./round-logo.png";
+import logo from "./square-logo.png";
 
 export default function ClimbImage({ currentImage, setImage }) {
   const tempImage = logo;
@@ -56,6 +56,7 @@ export default function ClimbImage({ currentImage, setImage }) {
     <div>
       <div onClick={() => editPic()}>
         <img
+          className="user-image"
           src={values.imagePreviewUrl}
           alt="..."
           style={{ objectFit: "cover" }}
@@ -63,6 +64,7 @@ export default function ClimbImage({ currentImage, setImage }) {
           width="300"
         />
         <input
+          className="button-38"
           type="file"
           accept="image/*"
           onChange={handleImageChange}
@@ -70,7 +72,7 @@ export default function ClimbImage({ currentImage, setImage }) {
         />
       </div>
       <br></br>
-      <button class="button-17" onClick={handleSubmit}>
+      <button class="button-38" onClick={handleSubmit}>
         Submit
       </button>
       {values.uploadSuccess ? (

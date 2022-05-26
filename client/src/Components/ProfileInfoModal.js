@@ -48,14 +48,12 @@ export const ProfileInfoModal = ({ setShowProfileModal }) => {
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
         <div className="modal--header">
-          <div className="x--button">
-            <button
-              className="button-17"
-              onClick={() => setShowProfileModal(false)}
-            >
-              RETURN TO MAP
-            </button>
-          </div>
+          <button
+            className="button-38"
+            onClick={() => setShowProfileModal(false)}
+          >
+            RETURN TO MAP
+          </button>
         </div>
         <div className="modal--body">
           <div className="photo--container">

@@ -79,76 +79,72 @@ export const FormModal = ({ data, setShowForm }) => {
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
         <div className="modal--header">
-          <div className="x--button">
-            <button class="button-17" onClick={() => setShowForm(false)}>
-              RETURN TO MAP
-            </button>
-          </div>
+          <button class="button-38" onClick={() => setShowForm(false)}>
+            RETURN TO MAP
+          </button>
         </div>
         <div className="modal--body">
-          <div className="new-photo--container">
+          <div className="photo--container">
             <ClimbImage setImage={setImage} />
           </div>
-            <div className="new-info--container">
-          <form onSubmit={handleSubmit}>
-            <label>
-              <h2 className="info-container-header">Coordinates</h2>
+          <div className="info--container">
+            <form onSubmit={handleSubmit}>
+              <h2 className="info-container-header">New Route</h2>
               <span>Latitude: {data.lat}</span>
               <br></br>
               <span>Longitude: {data.lng}</span>
-              </label>
-            <div>
-              <div></div>
               <br></br>
               <label>
+                <br></br>
                 Name:
                 <br></br>
-                <input className="new-form-field"
+                <input
+                  className="form--field"
                   type="text"
                   value={climbName}
                   onChange={(event) => setClimbName(event.target.value)}
                 />
               </label>
-            </div>
-            <br></br>
-            <div>
-              <label>
-                Description:
+              <div>
                 <br></br>
-                <input
-                  type="text"
-                  value={description}
-                  onChange={(event) => setDescription(event.target.value)}
+                <label>
+                  {" "}
+                  Grade:
+                  <Select
+                    onChange={(event) => setGrade(event.value)}
+                    options={gradeOptions}
                   />
-              </label>
-            </div>
-            <div>
+                </label>
+              </div>
+              <div>
+                <br></br>
+                <label>
+                  {" "}
+                  User Rating:
+                  <Select
+                    onChange={(event) => setRating(event.value)}
+                    options={ratingOptions}
+                  />
+                </label>
+              </div>
               <br></br>
-              <label>
-                {" "}
-                Grade:
-                <Select
-                  onChange={(event) => setGrade(event.value)}
-                  options={gradeOptions}
+              <div>
+                <label>
+                  Description:
+                  <br></br>
+                  <input
+                    className="form--field"
+                    type="text"
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)}
                   />
-              </label>
-            </div>
-            <div>
-              <br></br>
-              <label>
-                {" "}
-                User Rating:
-                <Select
-                  onChange={(event) => setRating(event.value)}
-                  options={ratingOptions}
-                  />
-              </label>
-            </div>
+                </label>
+              </div>
 
-            <br></br>
-            <input className="button-17" type="submit" value="Submit" />
-          </form>
-                  </div>
+              <br></br>
+              <input className="button-38" type="submit" value="Submit" />
+            </form>
+          </div>
         </div>
       </div>
     </div>,

@@ -26,11 +26,8 @@ export default function Navbar({ setShowProfileModal }) {
       >
         <ul className="nav-buttons">
           <li>
-            <button 
-            class="button-17" 
-            type="button">
+            <button class="button-38" type="button">
               <span class="text">Reset Location</span>
-              
             </button>
           </li>
           {isLoading ? (
@@ -44,7 +41,7 @@ export default function Navbar({ setShowProfileModal }) {
           <li>
             {isAuthenticated && (
               <button
-                class="button-17"
+                class="button-38"
                 type="button"
                 onClick={setShowProfileModal(true)}
               >

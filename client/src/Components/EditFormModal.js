@@ -78,7 +78,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
         <div className="modal--header">
           <div className="x--button">
             <button
-              class="button-17"
+              class="button-38"
               onClick={() => setShowEditFormModal(false)}
             >
               RETURN TO MAP
@@ -91,6 +91,20 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
           </div>
           <form className="info--container" onSubmit={handleSubmit}>
             <h2 className="info-container-header">Edit Route</h2>
+            <div>
+              <label>
+                Name:
+                <br></br>
+                <input
+                  className="form--field"
+                  type="text"
+                  value={climbName}
+                  placeholder={climbName}
+                  onChange={(event) => setClimbName(event.target.value)}
+                />
+              </label>
+            </div>
+            <br></br>
             <label>
               {" "}
               Grade:
@@ -120,6 +134,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
                 Description:
                 <br></br>
                 <input
+                  className="form--field"
                   type="text"
                   placeholder={description}
                   value={description}
@@ -128,19 +143,8 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
               </label>
             </div>
             <br></br>
-            <div>
-              <label>
-                Name:
-                <input
-                  type="text"
-                  value={climbName}
-                  placeholder={climbName}
-                  onChange={(event) => setClimbName(event.target.value)}
-                />
-              </label>
-            </div>
             <br></br>
-            <input className="button-17" type="submit" value="Submit" />
+            <input className="button-38" type="submit" value="Submit" />
           </form>
         </div>
       </div>
