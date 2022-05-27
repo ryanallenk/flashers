@@ -65,7 +65,6 @@ export const FormModal = ({ data, setShowForm }) => {
       return axios
         .post("http://localhost:8080/api/climbs", formSubmitData)
         .then((res) => {
-          //  console.log(res);
           console.log(res);
         })
         .catch((error) => {
@@ -82,7 +81,8 @@ export const FormModal = ({ data, setShowForm }) => {
       color: 'black',
     })
   };
-
+  
+  //render the modal JSX in the portal div.
   return ReactDom.createPortal(
     <div className="container" ref={modalRef} onClick={closeModal}>
       <div className="modal">
@@ -162,4 +162,3 @@ export const FormModal = ({ data, setShowForm }) => {
     document.getElementById("portal")
   );
 };
-//render the modal JSX in the portal div.

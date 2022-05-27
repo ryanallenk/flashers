@@ -15,7 +15,7 @@ export default function MapMarkers() {
     setShowModal(true);
   };
 
-  // (id, lat, long, image, grade, user_rating, climb_description, user_id)
+  // each "marker" has (id, lat, long, image, grade, user_rating, climb_description, user_id, climb_name)
   const newMarkers = markers.map((marker, index) => {
     return (
       <Marker

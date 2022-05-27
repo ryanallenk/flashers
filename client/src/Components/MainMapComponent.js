@@ -36,23 +36,17 @@ function MainMapComponent() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const onLoad = React.useCallback(function callback(map) {
-    // if (!navigator.geolocation.position) {
-    //   document
-    //     .getElementById("loading")
-    //     .setAttribute("style", "display: inline");
-    // }
+
     // logic for the location detection upon arrival
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
-          console.log("lat:", lat, "long:", lng);
+
           setLat(lat);
           setLong(lng);
-          // document
-          //   .getElementById("loading")
-          //   .setAttribute("style", "display: none");
+
         },
         () => {
           setErrorMessage("We could not find your location.");

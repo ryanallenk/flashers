@@ -1,10 +1,8 @@
 import { createContext, useState } from "react";
 
-const axios = require("axios").default;
-
 export const modalContext = createContext();
 
-//Make an axios request to the database API, returns provider context for MapMarkers
+// creates global context to turn location modal off/on
 export default function ModalProvider(props) {
   const [showModal, setShowModal] = useState(false);
 

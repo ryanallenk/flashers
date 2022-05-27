@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
 
-const axios = require("axios").default;
 
 export const markerContext = createContext();
 
-//Make an axios request to the database API, returns provider context for MapMarkers
+// saves the current selected marker globally on click so the data can be accessed throughout app
+
 export default function CurrentMarkerProvider(props) {
   const [currentMarker, setCurrentMarker] = useState({});
 

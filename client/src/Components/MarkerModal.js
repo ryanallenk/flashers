@@ -26,7 +26,7 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
     const checkbox = document.getElementById("box-1");
     if (checkbox.checked === true) {
       checkbox.disabled = true;
-      console.log("Checked!");
+
     }
     const formSubmitData = {
       user_id: user.sub,
@@ -35,7 +35,6 @@ export const MarkerModal = ({ setShowModal, data, setShowEditFormModal }) => {
     return axios
       .post("http://localhost:8080/api/flashes", formSubmitData)
       .then((res) => {
-        //  console.log(res);
         console.log(res);
       })
       .catch((error) => {

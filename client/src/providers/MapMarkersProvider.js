@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from 'react'
 const axios = require('axios').default;
 
 export const mapMarkerContext = createContext();
+
 //Make an axios request to the database API, returns provider context for MapMarkers
 export default function MapMarkersProvider (props) {
   const [markers, setMarkers] = useState([])
@@ -10,7 +11,7 @@ export default function MapMarkersProvider (props) {
   useEffect(() => {
     axios.get("http://localhost:8080/api/climbs/")
       .then(res =>  {
-       setMarkers(res.data) // will need to make sure this is not a stale state i.e. should ...prev state and update with any new markers
+       setMarkers(res.data)
       })
       .catch(error => {
         console.log(error)

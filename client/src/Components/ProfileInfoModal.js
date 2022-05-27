@@ -2,9 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import ReactDom from "react-dom";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Data } from "@react-google-maps/api";
-import profileModalContext from "../providers/ProfileModalProvider";
-/* {"nickname":"user","name":"user@example.com","picture":"https://s.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fus.png","updated_at":"2022-05-22T00:07:40.167Z","email":"user@example.com","email_verified":false,"sub":"auth0|6287b71874941e006e61aeb9"} */
+
+/* auto user object contains {"nickname":"user","name":"user@example.com","picture":"https://s.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fus.png","updated_at":"2022-05-22T00:07:40.167Z","email":"user@example.com","email_verified":false,"sub":"auth0|6287b71874941e006e61aeb9"} */
+
 export const ProfileInfoModal = ({ setShowProfileModal }) => {
   const { user } = useAuth0();
   const modalRef = useRef();
@@ -23,7 +23,6 @@ export const ProfileInfoModal = ({ setShowProfileModal }) => {
     axios
       .get(`http://localhost:8080/api/flashes/${user_id}`)
       .then((res) => {
-        // console.log(res)
         setFlashes(res.data[0].count);
       })
       .catch((error) => {
@@ -36,7 +35,6 @@ export const ProfileInfoModal = ({ setShowProfileModal }) => {
     axios
       .get(`http://localhost:8080/api/climbs/${user_id}`)
       .then((res) => {
-        // console.log(res)
         setRoutes(res.data[0].count);
       })
       .catch((error) => {

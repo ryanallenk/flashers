@@ -41,7 +41,6 @@ export default function ClimbImage({ currentImage, setImage }) {
         setImage(response.data.data.link);
         if (response.data.success == true) {
           setValues({ ...values, uploadSuccess: true });
-          console.log("Your image was successfully uploaded");
         }
       })
       .catch((error) => {

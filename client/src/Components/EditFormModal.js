@@ -3,10 +3,11 @@ import ReactDom from "react-dom";
 import Select from "react-select";
 import ClimbImage from "./ImageUploader";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const EditFormModal = ({ data, setShowEditFormModal }) => {
   const id = data.id;
-
+  const { user } = useAuth0();
   const modalRef = useRef();
   const [description, setDescription] = useState(data.climb_description);
   const [grade, setGrade] = useState(data.grade);
@@ -56,7 +57,7 @@ export const EditFormModal = ({ data, setShowEditFormModal }) => {
       user_rating: rating,
       lat: data.lat,
       lng: data.long,
-      creator_id: 1,
+      creator_id: user.sub,
       id: data.id,
       climb_name: climbName,
     };

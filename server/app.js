@@ -29,10 +29,6 @@ app.use("/api", flasherRoutes(db));
 
 app.use('/api', flasherRoutes(db))
 
-app.get('/', (req, res) => {
-	res.json({greetings: 'hello world'});
-})
-
 // cloud image storage routes
 
 

@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import LoginButton from "../Components/LoginButton";
 import LogoutButton from "../Components/LogoutButton";
-import Profile from "../Components/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./navbar.css";
 
