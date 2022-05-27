@@ -1,44 +1,60 @@
-# Flashers
+[](https://github.com/ryanallenk/flashers/blob/main/client/src/Navigation/flashers.png)
+==================
 
-## Project Description
-1. Project title: FLASHERS
+Flashers is a single page web app designed for urban rock climbers / boulderers. Flashers uses geolocation to show you user-submitted climbing locations near you. Users can also submit new locations, edit existing ones, and "flash" a route, adding it to their running total. 
 
-2. Project description - What problem your app solves: It consolidates bouldering locations based on user input. Allows climbers to find new locations, know some beta, and share their known locations with others. 
+![](https://github.com/ryanallenk/flashers/blob/main/docs/main-app-screen.png)
+![](https://github.com/ryanallenk/flashers/blob/main/docs/view-location-screen.png)
 
-3. Target audience - Your app will be useful to whom: Anyone who is into climbing already or has an interest in starting - low barrier to entry and easy to find places to go. 
+## Features
+* Anonymous users can view all the existing locations on the map.
+* Geolocation can find the users current position if enabled.
+* Logged in users can create/edit/and "flash" routes.
+* Logged in users can also see a tally of the number of routes they have contributed to the map and the number of routes they have "flashed".
 
-4. Team members - Michael, Maxwell, Ryan
+## Tech Stack
+Back-end  
+* Node
+* Express 
 
-## Stack Choices
-  - Node/Express 
-  - Postgres
-  - React
-  - Map API (Which Google Maps? Apple Maps?)
+Front-end
+* React
+* Axios
 
-## MVP
-- Creation of routes (minimum is name and location)
-- Map pins can be placed, interactive
--
+Database
+* PostgreSQL
 
-## Stretch
-- Users / Login
-- Allow pinned locations to be set as a bouldering Gym. 
-- Amount of information available for each route/location (user-rating, grade, pictures, comments/details about route)
-- Users are able to keep a personalized record of boulders they have attempted, completed and most importantly FLASHED
-- Geo-location
+APIs
+* Google Maps API w/ React Wrapper
+* Auth0
 
-## SillyStretch
-- (loose form of a point system, relating to amount of routes flashed, difficulty...etc)FlashCoin, an arbitrary crypto-currency is awarded to those who consistently FA(first ascent)
+## Getting Started
+#### Express Back-end
+1. `cd server`
+2. `npm install`
+3. `cp .env-example .env`
+4. Update the .env file with the local database information as needed.
+5. `npm start`
 
-## User Stories
-[github projects](https://github.com/ryanallenk/flashers/projects/1)
+#### React Front-end
+1. `cd client`
+2. `npm install`
+3. `cp .env-example .env`
+4. Update the .env file with the google maps API key and information as needed.
+5. `npm start`
 
-## Entity Relationship Diagram
+## Contributors
+* [Maxwell Veer](https://github.com/Mveer100)
+* [Michael Law](https://github.com/Law86)
+* [Ryan Kidd](https://github.com/ryanallenk)
 
-[ERD Diagram on Draw.io](https://drive.google.com/file/d/1Wn7J69STbKsC7jDE-W2O6wSQLfLdnDMv/view?usp=sharing)
+## Course Submission Requirements
 
-## Wireframes
+#### User Stories
+[user stories on github projects](https://github.com/ryanallenk/flashers/projects/1)
+
+#### Entity Relationship Diagram
+[ERD Diagram on Draw.io](https://drive.google.com/file/d/1Wn7J69STbKsC7jDE-W2O6wSQLfLdnDMv/view)
+
+#### Wireframes
 [MVP Wireframe](https://drive.google.com/file/d/1x6rn1uzxOCSvKLBZg4PHR9uVR8ZMx3nl/view?usp=sharing)
-## Inspiration
-
-https://bouldermap.app/
