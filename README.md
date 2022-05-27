@@ -1,4 +1,4 @@
-[](https://github.com/ryanallenk/flashers/blob/main/client/src/Navigation/flashers.png)
+![](https://github.com/ryanallenk/flashers/blob/main/client/src/Navigation/flashers.png)
 ==================
 
 Flashers is a single page web app designed for urban rock climbers / boulderers. Flashers uses geolocation to show you user-submitted climbing locations near you. Users can also submit new locations, edit existing ones, and "flash" a route, adding it to their running total. 
